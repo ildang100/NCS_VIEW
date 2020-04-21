@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** A, href, target **</title>
+</head>
+<body>
+<h1>1. 하이퍼링크를 이용한 문서이동</h1>
+<h3>
+<a href="http://www.greenart.co.kr" target="_blank">GreenArt</a>
+ => target=_blank <br>
+<a href="https://www.oracle.com">Oracle</a>
+ => target 속성 없음 <br>
+</h3>
+<pre>
+** target 속성
+=> 표시할 창 또는 frame에 관한 정보
+=> defalt:현재창, target=_blank:새창  또는 frame 이름의 위치 
+</pre>
+<hr>
+<h1>2. 하이퍼링크를 이용한 책갈피 기능</h1>
+<ul>
+	<li><a href="#hhh">HTML...=> blockQuote</a> 
+	<li><a href="#fr">Frame...=> nobr</a>
+	<li><a href="#fo">Form...</a> 
+</ul>
+
+<p id=hhh>** HTML이란1 _ 동일 ID 가 여러개인 경우 ?</p>
+<p id=hhh>** HTML이란2 _ 첫번째 ID 에 적용됨</p>
+<p id=hhh>** HTML이란3 _ 기본적으로 ID는 유일해야함</p>
+
+<h2 id="ht">HTML이란 ?</h2>
+<p align="left"><blockQuote><font color=red>
+<b>* blockQuote *</b><br>
+=> 양옆에 일정 공간을 유지해 준다. 인용구문 등에 주로 쓰인다.<br></font>
+* 사랑니는 되도록이면 안빼는것이 좋습니다.<br>
+* HTML(Hyper Text Markup Language)은 
+인터넷 전용 브로우저에 그림이나 text 를 표현할 수 있도록 해 주는 언어
+Hyper Text 는 Link를 사용하여 공간의 초월의미가 부여되는 글자들을 말한다.
+Markup이란 컴퓨터가 문서를 생성할 수 있게 하는 신호체계를 설정하는 것.
+* 사랑니는 되도록이면 안빼는것이 좋습니다.<br>
+</blockQuote> 
+* HTML(Hyper Text Markup Language)은 
+  인터넷 전용 브로우저에 그림이나 text 를 표현할 수 있도록 해 주는 언어
+  Hyper Text 는 Link를 사용하여 공간의 초월의미가 부여되는 글자들을 말한다.
+  Markup이란 컴퓨터가 문서를 생성할 수 있게 하는 신호체계를 설정하는 것.
+  * 사랑니는 되도록이면 안빼는것이 좋습니다.<br>
+* HTML(Hyper Text Markup Language)은 
+  인터넷 전용 브로우저에 그림이나 text 를 표현할 수 있도록 해 주는 언어
+  Hyper Text 는 Link를 사용하여 공간의 초월의미가 부여되는 글자들을 말한다.
+  Markup이란 컴퓨터가 문서를 생성할 수 있게 하는 신호체계를 설정하는 것.
+</p>
+<hr align="left" size=10 width=300 color=blue>
+
+<h2 id="fr"> Frame이란? </h2>
+<p align="center" >
+<pre>
+* Frame은 하나의 웹브라우저의 화면을 두개 이상의 분할하여 사용하는 것
+  즉, 각각의 독립적인 정보를 갖는 분할된 영역들을 말하며
+  Frameset은 분할된 영역들을 컨트롤할 수 있는 또하나의 페이지를 말한다.
+* 사랑니는 되도록이면 안빼는것이 좋습니다.<br>
+<nobr><font color=red>
+<b>* nobr : br 태그를 무효화시킴, 즉 줄바꿈이 안됨. </b></font>
+* HTML(Hyper Text Markup Language)은 
+  인터넷 전용 브로우저에 그림이나 text 를 표현할 수 있도록 해 주는 언어
+  Hyper Text 는 Link를 사용하여 공간의 초월의미가 부여되는 글자들을 말한다.
+  Markup이란 컴퓨터가 문서를 생성할 수 있게 하는 신호체계를 설정하는 것.
+</nobr>
+  * 사랑니는 되도록이면 안빼는것이 좋습니다.<br>
+* HTML(Hyper Text Markup Language)은 
+  인터넷 전용 브로우저에 그림이나 text 를 표현할 수 있도록 해 주는 언어
+  Hyper Text 는 Link를 사용하여 공간의 초월의미가 부여되는 글자들을 말한다.
+  Markup이란 컴퓨터가 문서를 생성할 수 있게 하는 신호체계를 설정하는 것.
+  </pre>
+</p>
+<hr align="center" size=10 width=50% color=green>
+<h2 id="fo"> Form이란? </h2>
+<p align="right" >
+FORM은 정보를 입력 또는 선택하고 버튼을 클릭하며 정보를 서버에 전달하고 응답받는 양방향의 의사소통을 지원하는 입력양식이며,
+Form 의 내부에는 INPUT, SELECT, TEXTAREA 등의 태그들이 포함된다.
+* 사랑니는 되도록이면 안빼는것이 좋습니다.<br>
+* HTML(Hyper Text Markup Language)은 
+  인터넷 전용 브로우저에 그림이나 text 를 표현할 수 있도록 해 주는 언어
+  Hyper Text 는 Link를 사용하여 공간의 초월의미가 부여되는 글자들을 말한다.
+  Markup이란 컴퓨터가 문서를 생성할 수 있게 하는 신호체계를 설정하는 것.
+  * 사랑니는 되도록이면 안빼는것이 좋습니다.<br>
+* HTML(Hyper Text Markup Language)은 
+  인터넷 전용 브로우저에 그림이나 text 를 표현할 수 있도록 해 주는 언어
+  Hyper Text 는 Link를 사용하여 공간의 초월의미가 부여되는 글자들을 말한다.
+  Markup이란 컴퓨터가 문서를 생성할 수 있게 하는 신호체계를 설정하는 것.
+  * 사랑니는 되도록이면 안빼는것이 좋습니다.<br>
+* HTML(Hyper Text Markup Language)은 
+  인터넷 전용 브로우저에 그림이나 text 를 표현할 수 있도록 해 주는 언어
+  Hyper Text 는 Link를 사용하여 공간의 초월의미가 부여되는 글자들을 말한다.
+  Markup이란 컴퓨터가 문서를 생성할 수 있게 하는 신호체계를 설정하는 것.
+</p>
+<hr align="right" size=10 width=50% color=red>
+
+</body>
+</html>
