@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Form Basic **</title>
+</head>
+<body>
+<h2>** Form 기본 Tag **</h2>
+<form action="#" method="get">
+I D : <input type="text" name="id" size="20" placeholder="영문 으로만 입력_value값이 우선" value="banana"><br>
+Password: <input type="password" name="password" size="20" maxlength="10" 
+							placeholder="숫자로만  입력하세요" value="12345"><br>
+<hr>
+** Radio Button **<br>
+=> 그룹중에서 한가지만 선택가능, name이 그룹명<br>
+** 메뉴 하나만 선택 **<br>
+<input type="radio" name=menu value="짜장면" checked="checked">짜장면
+<input type="radio" name=menu value="짬뽕">짬뽕
+<input type="radio" name=menu value="볶음밥">볶음밥<br><br>
+** 과일 하나만 선택 **<br>
+<input type="radio" name=fruit value="1">사과
+<input type="radio" name=fruit value="2" checked="checked">딸기
+<input type="radio" name=fruit value="3">수박<br><br>
+
+** CheckBox **<br>
+=> 다중 선택 가능, name 이 그룹명<br>
+** 좋아하는 과일 모두 선택하기<br>
+<input type="checkbox" name="cfruit" value="포도" checked="checked">포도<br>
+<input type="checkbox" name="cfruit" value="자몽">자몽<br>
+<input type="checkbox" name="cfruit" value="오렌지">오렌지<br>
+** 좋아하는 동물 모두 선택하기<br>
+<input type="checkbox" name="cpet" value="1" checked="checked">강아지<br>
+<input type="checkbox" name="cpet" value="2">고양이<br>
+<input type="checkbox" name="cpet" value="3">돼지<br><br>
+
+** SELECT : 단일 선택 **<br>
+<select name="lev">  
+	<option value="A">관리자
+	<option value="B">나무
+	<option value="C">잎새
+	<option value="D" selected="selected">새싹
+</select><br>
+** SELECT : 다중 선택 **<br>
+<select name=hobby  multiple="multiple" size="4">
+	<option value="독서">독서
+	<option value="영화">영화
+	<option value="게임">게임
+	<option value="코딩">코딩
+	<option value="알고리즘">알고리즘
+	<option value="축구">축구
+	<option value="유투브">유투브
+</select><br><br>
+
+** TEXTAREA **<br>
+ <textarea rows="5" cols="50" name="memo">** memo **</textarea>
+<br> 
+** input : Date **<br>
+ <input type="date" name="birthd">
+ 
+<br><br> 
+<input type="button" value="버튼[동작을구현]">&nbsp;&nbsp;
+<input type="submit" value="보내기[서버로전송]">&nbsp;&nbsp;
+<input type="reset" value="취소[InputClear]">
+</form>
+</body>
+</html>
