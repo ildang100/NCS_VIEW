@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Div , Span **</title>
+<style type="text/css">
+.ggg {
+	width:100px;
+	height:100px;
+	background-color:yellow;
+	float:left;
+	}
+.ggg1 {
+	width:100px;
+	height:100px;
+	}	
+</style>
+
+</head>
+<body>
+<h2>** 1. DIV **</h2>
+<pre><h3>
+=> 줄바꿈이 있는 block
+=> 콘텐츠의 영역이나 그룹화를 할때 사용
+=> 배경색은 레이아웃 가로 세로 모두에 적용
+=> 외관 관련 속성은 css(style) 만 적용 됨.
+</h3></pre>
+<div width=100 height=100 border=1>외관 관련 속성 없음</div>
+<div align="left" style="width:150px; height:100px; background-color:red;">** DIV Block 1 **</div>
+<div align="center" style="width:150px; height:100px; background-color:blue;">** DIV Block 2 **</div>
+<div align="right" style="width:150px; height:100px; background-color:green;">** DIV Block 3 **</div>
+<h2>** 2. SPAN **</h2>
+<pre><h3>
+=> 줄바꿈이 없는 inLine 영역
+=> 다른 텍스트와 구별하기 위해 사용
+=> 배경색은 글자가 있는곳만 적용
+=> 외관 관련 속성은 <span style="background-color:aqua;">css(style)</span> 만 적용 됨.
+</h3></pre>
+<span style="width:300px; height:100px; background-color:red;">** Span inLine 1 **</span>
+<span style="width:300px; height:100px; background-color:blue;">** Span inLine 2 **</span>
+<span style="width:300px; height:100px; background-color:green;">** Span inLine 3 **</span>
+<hr>
+<h2>** 3. Div in Span</h2>
+<h3>=> span 이 div 처럼 (block 적용) </h3> 
+<span>* Span 3.1
+	<div>* Div1 in Span 3.1</div>
+	<div>* Div2 in Span 3.1</div>
+	<div>* Div3 in Span 3.1</div>
+</span>
+<span>* Span 3.2
+	<div>* Div1 in Span 3.2</div>
+	<div>* Div2 in Span 3.2</div>
+	<div>* Div3 in Span 3.2</div>
+</span>
+
+<h2>** 4. Span in Div</h2>
+<h3>=> div는 block, span은 inLine</h3>
+<div>* Div 4.1
+	<span>* Span1 in Div4.1</span>
+	<span>* Span2 in Div4.1</span>
+	<span>* Span3 in Div4.1</span>
+</div>
+<div>* Div 4.2
+	<span>* Span1 in Div4.2</span>
+	<span>* Span2 in Div4.2</span>
+	<span>* Span3 in Div4.2</span>
+</div>
+
+<h2>** 5. Div 를 Table 처럼</h2>
+<div> <!-- table -->
+	<div> <!-- <tr> -->
+		<span> 월요일 </span><span> 화요일 </span><span> 수요일 </span> <!-- <td> -->
+	</div>
+	<div><span> 월요일 </span><span> 화요일 </span><span> 수요일 </span>
+	</div>
+	<div><span> 월요일 </span><span> 화요일 </span><span> 수요일 </span>
+	</div>
+</div>
+
+<h2>** 6. Div 를 갤러리 처럼 출력</h2>
+<pre><h3>
+=> 1줄에 div를 일정 갯수만큼 출력하고 줄바꿈 하기  
+=> float:left 를 사용하면서 (ggg) 
+=> 줄바꿈을위해 float:left 속성없는 동일 사이즈의 blank_div (ggg1)
+=> 를  필요한 위치에 정의 한다. 
+</h3></pre>
+<div class="ggg">1111</div>
+<div class="ggg">2222</div>
+<div class="ggg">3333</div>
+<div class="ggg1"></div>
+<div class="ggg">4444</div>
+<div class="ggg">5555</div>
+<div class="ggg">6666</div>
+</body>
+</html>
