@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Child(자식) 과 Descendent(후손) **</title>
+
+<style>
+	#div1 > h1 {color:red}    /* Child (자식) */
+	#div2 h1 {color:blue;}    /* Descendent (후손들) */ 
+	#div2, h1 {color:green;}  /* div2 와  h1 */
+</style>
+
+</head>
+<body>
+<h1>** Selector Child(자식) **</h1>
+<div id=div1>
+	<h1>Div1 의 Child1</h1>
+	<h1>Div1 의 Child2</h1>
+	<div>
+		<h1>Div1 의 손자1</h1>
+		<h1>Div1 의 손자2</h1>
+	</div>
+</div>
+<h1>** Selector Descendent(후손들) **</h1>
+<div id=div2>
+	<h1>Div2 의 Child1</h1>
+	<h1>Div2 의 Child2</h1>
+	<div>
+		<h1>Div2 의 손자1</h1>
+		<h1>Div2 의 손자2</h1>
+	</div>
+</div>
+
+</body>
+</html>
