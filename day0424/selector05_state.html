@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** 상태(속성)와 동작(반응)에 의한 선택 **</title>
+
+<style>
+	/* 1. 상태 (state) */
+	input:enabled { background-color:yellow; }
+	input:disabled { background-color:gray; }
+	input:focus { background-color:red; }
+	/* 2. 동작  (action) */
+	h2:hover { color:blue; }
+	h2:active { color:red; }
+</style>
+
+</head>
+<body>
+<h2>** 1. 상태(속성)에 의한 선택 **</h2>
+	<h3>사용가능: enabled</h3>
+	<input />
+	<h3>사용불가능: disabled</h3>
+	<input disabled="disabled" />
+
+<h2>** 2. 동작(반응)에 의한 선택 **</h2>
+	<h2>Mouse Hover : MouseOn</h2>
+	<h2>Mouse Active: 마우스 누르고 있는 동안</h2>
+</body>
+</html>
