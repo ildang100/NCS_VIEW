@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** CSS Start **</title>
+<link rel="stylesheet" type="text/css" href="myStyle.css">
+
+<style type="text/css">
+	p { margin-left: 20px; color:red; }
+	h2 { color: green; }
+	#test { font-size:20px; color:aqua }
+</style>
+
+</head>
+<body>
+<h2>1. 인라인 스타일(Inline Styles)</h2>
+<p style="font-size:16pt; color:blue; font-family:돋움체 ">
+인라인 스타일은 태그 안에 style 속성을 사용하여 스타일을 지정합니다.
+그래서 인라인 스타일을 사용하면 내용과 표현이 섞이기 때문에
+스타일을 사용하는 많은 장점을 잃을 수 있습니다.
+그러나 <b>특정한 부분에만 스타일을 적용시키고자 할 경우</b> 사용할 수 있습니다.<br>
+</p>
+<h2>2. 내부 스타일 시트(Internal Style Sheet)</h2>
+<xmp  id=test > 
+내부 스타일 시트는 하나의 문서에서만 사용하는 스타일을 정의할 때 사용합니다.
+내부 스타일은 <b>head 태그 영역에  style 태그를 이용하여</b> 정의합니다.
+xmp Tag는 내부의 Tag는 적용되지 않으나 style은 적용됨. 
+</xmp>
+<h2>3. 외부 스타일 시트(External Style Sheet)</h2>
+<pre>
+외부 스타일 시트는 어떤 텍스트 에디터로든지 작성이 가능하며
+확장자는  .css 로 저장하며,
+외부 스타일시트 파일은 HTML 태그(선택자를 제외하고는) 를 포함할 수 없습니다.
+<b>
+*** Style 우선순위
+=> 인라인 > 내부스타일 > 외부스타일
+</b>
+</pre>
+</body>
+</html>
