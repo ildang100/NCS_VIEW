@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Structured Child **</title>
+
+<style>
+	li {list-style:none; float:left; padding:30px;}
+	li:first-child {border-radius: 15px 0 0 15px;}
+	li:last-child  {border-radius: 0 15px 15px 0;}
+	li:nth-child(2n) {background-color: purple;}   /* 앞에서 부터 짝수번째 : n의 값이 0 부터 적용 */
+	li:nth-child(2n+1) {background-color: yellow;} /* 앞에서 부터 홀수번째 */
+</style>
+
+</head>
+<body>
+	<h2>* Structured Child : 구조적인 Child 선택 **</h2>
+	<ul>
+		<li>1 째
+		<li>2 째
+		<li>3 째
+		<li>4 째
+		<li>5 째
+		<li>6 째
+		<li>7 째
+	</ul>
+</body>
+</html>
