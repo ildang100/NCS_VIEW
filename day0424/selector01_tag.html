@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Selector01 Tag **</title>
+<style>
+	* {color: blue;}
+	h2 { color: lime; }
+	h3, p, pre {font-size: 20pt; font-weight:bold; color:red;}
+	input[type="text"] {color: green; background-color:yellow; }
+	input[type="password"] {color: white; background-color:black; }
+</style>
+</head>
+
+<body>
+<h2>Test1) Selector_ *</h2>
+<p>* => 모든 Tag에 적용 할 때</p>
+<h2>Test2) Selector _Tag</h2>
+<h3>2.1) 기본 Tag</h3>
+<pre> 
+단수 적용 => h1
+복수 적용 => h2, h3, p, pre,...
+</pre>
+<h3>2.2) Form Tag</h3>
+	<form>
+		text : <input type="text"><br>
+		password: <input type="password"><br>
+	</form>
+</body>
+</html>
