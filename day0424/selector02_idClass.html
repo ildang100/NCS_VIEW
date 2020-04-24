@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Selector02 Id , Class **</title>
+
+<style>
+	#idtest {color: orange;}
+	.class1 {color: lime;}
+	.class2 {font-style:italic;}
+	li.class2 {font-size:20pt; color:blue;}
+
+</style>
+
+</head>
+<body>
+<h2 id=idtest>Test1 : Selector_ID</h2>
+<h3 id=idtest>=> Html 문서내에서 Tag를 인식할 수 있는 방법</h3>
+<h3 id=idtest>=> Html 문서내에서 유일 해야함</h3>
+<h3 id=idtest>=> Html 문서내에서는 오류 없지만 자바스크립트에서는 1개에만 적용됨 -> 주의 해야함</h3>
+
+<h2 class=class1>Test2 : Selector_Class</h2>
+<h3 class="class1 class2">=> Html 문서내에서 Tag를 인식할 수 있는 방법</h3>
+<h3 class="class1 class2">=> 클래스명의 중복을 허용하고,<br> 
+ 하나의 Tag가 여러 클래스를 중복사용하는것도 가능함.</h3>
+<h3 class="class1 class2">=> 실제 많이 사용되는 유형</h3>
+	<ul>
+		<li class="class2">사과
+		<li class="class2">딸기
+		<li class="class2">바나나
+	</ul>
+</body>
+</html>
