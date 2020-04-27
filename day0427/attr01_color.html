@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Color 와 Size **</title>
+<style>
+	body { background-color:yellow; }
+	#col1 {color:red;}
+	#col2 {color:#ff0000;}
+	#col3 {color:rgb(100%,0%,0%)}
+	#col4 {color:rgb(255,0,0)}
+	
+	/* Test1. px: pixels 해상도에 따른 1점을 단위로 하는 절대크기 */
+	/* => default 크기비교  (Font Size 3  과 동일 ) 
+	#p1 {} 
+	#p2 {font-size:16px;}
+	#p3 {font-size:24px;}
+	#p4 {font-size:32px;}  */
+	
+	/* Test2. pt: point (1pt= 1/72 inch)   
+	#p1 {}   
+	#p2 {font-size:16pt;}
+	#p3 {font-size:24pt;}
+	#p4 {font-size:32pt;} */
+	
+	/* Test3. em: 배수 (기본 크기에 대한 상대적 크기)  
+	#p1 {}  
+	#p2 {font-size:1.0em;}
+	#p3 {font-size:1.5em;}
+	#p4 {font-size:2.0em;} */
+	
+	/* Test4. % (기본 크기에 대한 상대적 크기)  
+	#p1 {}   
+	#p2 {font-size:100%;}
+	#p3 {font-size:150%;}
+	#p4 {font-size:200%;} */
+	
+	/* Test5. Total */
+	p:nth-child(7) {font-size:16px; color:blue;}
+	p:nth-child(8) {font-size:16pt; color:blue;}
+	p:nth-child(9) {font-size:1.0em; color:blue;}
+	p:nth-child(10) {font-size:100%; color:blue;}  
+
+</style>
+</head>
+<body>
+<h2>** Color Test **</h2>
+<h3 id=col1>1. 색상 이름 으로 표기</h3>
+<h3 id=col2>2. 16진수 색상코드로 표기</h3>
+<h3 id=col3>3. RGB 값으로 표기 (백분율)</h3>
+<h3 id=col4>4. RGB 값으로 표기 (10진수)</h3>
+
+<h2>** Size Test **</h2>
+<p id=p1>1. px: pixels (a dot on the computer screen) 크기, 위치</p>
+<p id=p2>2. pt: point (1 pt = 1/72 inch) 글자크기</p>
+<p id=p3>3. em: 배수, 1em 은 현재 폰트의 크기와 같습니다.<br> 
+________ 2em 은 현재 폰트 크기의 2배 크기를 의미합니다.<br>
+________ 만약 현재 폰트의 크기가 12pt이면 2em은 24pt 크기에 해당합니다.</p>
+<p id=p4>4. ex: 1ex 는 폰트의 높이(x-height)를 의미합니다.</p>
+<hr>
+<h3>Test1. px:Pixels</h3>
+<h3>Test2. pt:Point</h3>
+<h3>Test3. em:배수</h3>
+<h3>Test4. %:Percent</h3>
+
+
+</body>
+</html>
