@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Font, Button, aTag Test **</title>
+<link rel="stylesheet" type="text/css" href="../day0424/myStyle.css">
+<style>
+	.f1 {font-family:Arial; font-size:small; text-decoration:underline; }
+	.f2 {font-family:MyFont,굴림체,Arial;font-size:x-large;text-decoration: overline; }
+	.f3 {font-family:Arial,fantasy;font-size:24pt;font-weight:bold;}
+	.f4 {font-style:italic; font-stretch:wider; text-decoration:line-through; }
+							/* font-stretch : 글자의 장평,  line-through : 취소선 */
+</style>
+</head>
+<body>
+<h2>** Font Test **</h2>
+<p class=f1>     Font Test01 : f1 </p>
+<p class="f1 f2">Font Test02 : f1, f2 </p>
+<p class=f3>     Font Test03 : f3 </p>
+<p class="f3 f4">Font Test04 : f3, f4 </p>
+<hr> 
+<h2>** Button & Line Height **</h2>
+=> myStyle.css 에 작성 <br>
+<div class="button f3">
+	<a href="../hello.html">HOME</a>
+</div>
+<br><br><br>
+</body>
+</html>
