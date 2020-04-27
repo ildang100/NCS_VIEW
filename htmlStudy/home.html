@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Html Study **</title>
+<style>
+	* 	{margin:0; padding:0; } /* 초기화 */
+	body {margin:0 auto;   		/* 중앙정렬 : 상하(0) 좌우(auto) */
+		  	width:900px;
+		}		
+	#header{width:100%; height:175px;}
+	#nav {width:200px;height:600px; background-color:yellow; float:left;}
+	#section {width:700px; height:600px; background-color:aqua; float:left;}
+	#footer {width:100%; height:180px;
+			 /* margin-left:0; margin-top:680px; position:absolute;  
+			       비교해 보세요  ~~~  */	 
+		}
+</style>
+</head>
+<body>
+<div id=header>
+	<iframe src="header.html" width=100% height=100%></iframe>
+</div>
+<div id=nav>
+	<iframe src="lmenu.html" width=100% height=100%></iframe>
+</div>
+<div id=section>
+	<iframe src="main.html" width=100% height=100% name="main"></iframe>
+</div>
+<div id=footer>
+	<iframe src="footer.html" width=100% height=100%></iframe>
+</div>
+
+</body>
+</html>
