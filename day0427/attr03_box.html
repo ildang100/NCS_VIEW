@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** BOX **</title>
+<style>
+	.box0 { width:300px; height:400px; color:yellow;
+			background-image:url("../image/a1.png");
+			}
+	.box1 {	border: 10px; border-width:thick;
+			border-style: dotted; border-color:black;
+			/*margin: 0 auto;  중앙정렬 
+			margin-left: 20px; */
+			margin: 10px 20px 30px 40px; /* 위, 우, 아래, 좌 */
+			padding:30px 40px 50px 60px;
+			}
+	#block1 {width:100px; height:100px; background-color:red; padding:10px;}	
+	#block2 {width:100px; height:100px; background-color:Blue;}
+	
+	.dis {	width:200px; height:200px;
+			background-color: green;
+			/* display: none; */
+			display: block;
+</style>
+</head>
+<body>
+<div class=box0>
+	<div id=block1>Block0 1</div>
+	<div id=block2>Block0 2</div>
+</div>
+<hr>
+<div class="box0 box1">
+	<div id=block1>Block 1</div>
+	<div id=block2>Block 2</div>
+</div>
+
+<pre>
+** Box
+=> margin : 요소의 가장자리와 그 밖에있는 다른 요소와의 간격
+=> padding: 요소의 가장자리와 내용사이의 간격
+=> border : 요소 감싸고 있는 외부의 경계선
+=> background-image : 배경 이미지
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Margin, Padding **
+ => 값은 auto로 하거나 여백을 직접 값으로 입력할 수 있습니다.
+ 	( Margin은 음수 사용 가능)
+ => 아니면 브라우저의 크기에 따른 비율(%)로 값을 설정할 수 있습니다.
+=> margin 1개 : 모두 
+=> margin 2개 : 위아래, 왼쪽오른쪽
+=> margin 4개 : 위,오른쪽,아래,왼쪽(top, right, bottom, left)
+
+** margin-top, margin-right, margin-bottom, margin-left
+=> 해당하는 위치의 여백을 설정합니다.
+</pre>
+<hr>
+<div class=dis>
+	Div_Display Test 
+	Div_Display Test
+	Div_Display Test
+	Div_Display Test
+</div>
+
+</body>
+</html>
