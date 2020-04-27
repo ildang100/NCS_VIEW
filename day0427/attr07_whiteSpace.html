@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Text _ WhiteSpace **</title>
+<style>
+	.area {	width:300px; background-color:#ddd;}
+	.ell {	white-space:nowrap;
+			overflow:hidden;
+			text-overflow:ellipsis;
+		}
+	
+	.nr  {	white-space: nowrap;}	
+	.nor { 	white-space: normal;}
+	.pr  {	white-space: pre;}	
+	.prw { 	white-space: pre-wrap;}
+	.prl { 	white-space: pre-line;}
+</style>
+</head>
+<body>
+<h2>** Text _ WhiteSpace **</h2>
+<p class="ell area">
+text-overflow: ellipsis  ("ell")
+=> overflow:hidden 에 의해 화면에 표시되지 못하는 부분을 어떻게 나타낼지 설정.
+=> 글자 생략 ... 으로 표시됨
+</p>
+<pre class="nr area">
+*** nowrap
+white-space 는    
+     공백이나 엔터가 어떻게 동작할 것인지를 설정합니다.
+   normal일 경우에는 공백과 엔터를 무시합니다.
+   pre를 사용하였을 경우에는 HTML 태그의 pre태그와 동일한 기능을 합니다.
+   nowrap을 사용하였을 경우에는 줄 바꿈 기능을 하지 않습니다.
+</pre>
+<pre  class="pr area">
+*** pre
+white-space 는
+     공백이나 엔터가 어떻게 동작할 것인지를 설정합니다.
+   normal일 경우에는 공백과 엔터를 무시합니다.
+   pre를 사용하였을 경우에는 HTML 태그의 pre태그와 동일한 기능을 합니다.
+   nowrap을 사용하였을 경우에는 줄 바꿈 기능을 하지 않습니다.
+</pre>
+<pre class="nor area">
+*** normal
+white-space 는    
+     공백이나 엔터가 어떻게 동작할 것인지를 설정합니다.
+   normal일 경우에는 공백과 엔터를 무시합니다.
+   pre를 사용하였을 경우에는 HTML 태그의 pre태그와 동일한 기능을 합니다.
+   nowrap을 사용하였을 경우에는 줄 바꿈 기능을 하지 않습니다.
+</pre>
+<pre class="prw area">
+*** pre-wrap
+white-space 의 속성들  
+=> nowrap : 줄바꿈 금지
+   pre : 띄어쓰기, 줄바꿈 등 입력한 그대로 출력 pre 태그처럼   
+   pre-wrap : pre 와 비슷 , 줄바꿈 + 자동 줄바꿈
+   pre-line : 띄어쓰기 한칸만 적용   
+</pre>
+<pre class="prl area">
+*** pre-line
+    => 띄어쓰기 한칸만 적용  
+             정말 그런지 확인 해 보세요~ 
+</pre>
+
+</body>
+</html>
