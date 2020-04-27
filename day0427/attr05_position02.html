@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Position2. 절대위치, 상대위치, overflow, z-index **</title>
+<!-- position1. 기본 도형 3개를 이용하여 
+		positioning, position, overflow, z-index Test   -->
+<style>
+
+	body > div {
+			width:400px; height:200px;
+			border:3px solid black;
+			left:20px; top:20px;
+			position:relative;   
+			overflow:scroll;  
+			/* auto:필요시 자동으로   scroll:무조건 표시 */
+			
+		}
+
+	.box {	width:100px; height:100px;
+			position:absolute;
+			/* relative/absolute */ 
+	     }
+	.box:nth-child(1) {
+			left:10px; top:10px;
+			background-color:red; 
+			z-index:100;
+		}
+	.box:nth-child(2) {
+			left:50px; top:50px;
+			background-color:yellow; 
+			z-index:190;
+		} 
+	.box:nth-child(3) {
+			left:90px; top:90px;
+			background-color:blue; 
+			z-index:80;
+		} 		     
+</style>
+</head>
+<body>
+<h2>** Position : 위치속성  </h2>
+<div>
+	<div class=box>111</div>
+	<div class=box>222</div>
+	<div class=box>333</div>
+</div>
+<pre><h3>
+** positioning 관련 속성
+=> absolute : 다른 태그 무시하고  무조건 위치하므로 다른 태그들이 가려짐  
+=> 해결1: 부모태그에 크기를 지정해서 영역을 만들어줌. 
+=> 해결2: 부모의 position : relative 로 
+=> 해결3: 부모의 overflow : hidden/scroll 으로
+
+** overflow : 내부의 요소가 부모의 범위를 벗어날때 요소를 처리하는 방법 
+=> hidden, scroll, ..
+
+** z-index : 요소의 화면표시 순서를 설정
+=> 숫자 값이 클수록 우선순위가 높고 앞쪽에 나타남.
+</h3></pre>
+</body>
+</html>
