@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>** Layout_Float With Overflow **</title>
+   <!--  수평정렬 : 부모는   overflow: hidden , 자손은  float: left  -->
+    <style>
+        div.container { overflow: hidden; }
+        div.item {
+            float: left;
+            margin: 0 3px;
+            padding: 10px;
+            border: 1px solid black; }
+        div.itemRight {
+        	float: right;
+            margin: 0 3px;
+            padding: 10px;
+            border: 1px solid black;
+        
+        	}    
+    </style>
+</head>
+<body>
+<p> Layout : Float With Overflow : 수평정렬 </p>
+    <div class="container">
+        <div class="item">메뉴 - 1</div>
+        <div class="item">메뉴 - 2</div>
+        <div class="item">메뉴 - 3</div>
+        <div class="itemRight">메뉴 - 4</div>
+    </div>
+<p> 수평정렬 : 부모는   overflow: hidden , 자손은  float: left or right </p>
+</body>
+</html>
