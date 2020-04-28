@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Top Menu Layout **</title>
+<style>
+	* { margin: 0; padding: 0; border-width:0; }
+	body { width:1200px; margin:0 auto; }
+	h1 { margin-bottom:20px }
+	
+	.div_wrap {
+			float: left;
+			width: 100px;
+			margin-right: 50px;
+			 }
+	.div_wrap ul {
+			margin: 0 auto;
+			list-style: none;
+			}
+	.div_wrap ul li a {
+			display: block;
+			margin-left: 3px;
+			font-size: 20px;
+			line-height: 44px;
+			text-decoration: none;
+			color: gray;
+			}
+	.div_wrap ul li a:hover {
+			color: black;
+			}
+	.div_wrap ul ul { display: none;} 
+	
+	.div_wrap ul li:hover ul { display: block;}
+	.lis {font: 22px; color: #000000; } 
+	.clear_both { clear:both;}
+	.lin {
+			width: 100px;
+			border: 1px solid #ffe08c; 
+			background-color: #faed7d;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+	.dheader {
+			background-color: #f29661;
+			height: 130px;
+			/* padding-top: 20px; */
+			position: absolute;
+			/* top:60px; */
+			z-index: 9999;
+			width: 1200px;
+		}
+	.main { 
+			width:100%;
+			height:400px;
+			background-color: #FFFFFF;
+			position: absolute;
+			top: 210px;
+			z-index: 1000;
+		}	
+	.dfooter {
+			width:100%;
+			background-color: #E5D85C;
+			position: absolute;
+			bottom: 0px;
+			text-align: center;
+		}  		
+	 #section { width: 100%;
+	 		height:350px;
+	 	}
+			
+</style>
+
+
+</head>
+<body>
+<div class=dheader>
+ <h1>header</h1>
+ <div class=header_wrap>
+	<div class=div_wrap>
+	 <ul>
+		<li class=lis>HTML
+		<ul class=ulName>
+			<li class=lin><a href="../day0420/htmlEx02_Font.html" target="section">Font</a>
+			<li class=lin><a href="../day0421/textEx03_aTag.html" target="section">Text</a>
+			<li class=lin><a href="../day0421/mediaEx.html" target="section">Media</a>
+		</ul>		
+	</ul>
+   </div>
+   
+   <div class=div_wrap>
+	 <ul>
+		<li class=lis>CSS
+		<ul class=ulName>
+			<li class=lin><a href="../day0424/cssEx01_start.html" target="section">Start</a>
+			<li class=lin><a href="../day0424/selector05_state.html" target="section">Selector5</a>
+			<li class=lin><a href="../day0427/attr05_position02.html" target="section">Position2</a>
+		</ul>		
+	</ul>
+   </div>
+ </div>
+</div>
+
+<div class=clear_both></div>
+<div class=main>
+	<h1>Main</h1>
+	<iframe name=section id=section></iframe>
+</div>
+<div class=clear_both></div>
+<div class=dfooter>
+	<h1>footer</h1>
+	<br>	
+  주소 : 경기도 성남시 분당구 금곡동 그린 컴퓨터아카데미<br>
+  연락처 : 010-****-****<br>
+ 	<a HREF="mailto:uhmmh@naver.com">e 메일 문의...</a>
+</div>
+</body>
+</html>
