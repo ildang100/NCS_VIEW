@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Operator **</title>
+</head>
+<body>
+<h2>** JavaScript Operator **</h2>
+<h2>* 1. 4칙 연산자</h2>
+<script>
+	var a=7, b=3;
+	document.write("a+b = "+(a+b)+"<br>");
+	document.write("a-b = "+(a-b)+"<br>");
+	document.write("a*b = "+(a*b)+"<br>");
+	document.write("a/b = "+(a/b)+"<br>");
+	document.write("a%b = "+(a%b)+"<br>");
+</script>
+<h2>* 2. 단항 연산자</h2>
+<script>
+	var a=10, b=10;
+	document.write("++a = "+(++a)+"<br>"); // 11 
+	document.write("b++ = "+(b++)+"<br>"); // 10
+	document.write("++a = "+(--a)+"<br>"); // 10
+	document.write("b++ = "+(b--)+"<br>"); // 11
+	document.write("a+b = "+(a+b)+"<br>"); // 20
+</script>
+<h2>* 3. 축약대입 연산자</h2>
+<script>
+	var a=10, b=3;
+	document.write("a+=b => "+(a+=b)+"<br>"); // a=a+b 13 
+	document.write("a-=b => "+(a-=b)+"<br>"); // a=a-b 10
+	document.write("a*=b => "+(a*=b)+"<br>"); // a=a*b 30
+	document.write("a/=b => "+(a/=b)+"<br>"); // a=a/b 10
+	document.write("a%=b => "+(a%=b)+"<br>"); // a=a%b 1
+</script>
+<h2>* 4. 관계(비교) 연산자</h2>
+<script>
+	var a=10, b=3;
+	document.write("a > b => "+(a>b)+"<br>");  // t
+	document.write("a < b => "+(a<b)+"<br>");  // f
+	document.write("a >= b => "+(a>=b)+"<br>");// t  
+	document.write("a <= b => "+(a<=b)+"<br>");// f 
+	document.write("a == b => "+(a==b)+"<br>");// f  
+	document.write("a != b => "+(a!=b)+"<br>");// t
+	
+	var x=10, y="10" ;
+	document.write("x == y => "+(x==y)+"<br>");   
+	// true -> '==' 은 Type을 비교하지 않습니다. 
+	document.write("x == y => "+(x===y)+"<br>");
+	// false -> '===' 은 값, Type 모두 비교 합니다.
+	// 오류 발생시  해당 script 실행 안됨
+</script>
+</body>
+</html>
