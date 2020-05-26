@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Java Script Variable **</title>
+<script>
+// test1.
+//-> Type 없이 var 로 정의하며 대입 값에 따라 Type을 가짐
+	var a;
+	a=10;  // 정수
+	var b;
+	b="javaScript";
+	var c=12.345, d=12345;
+	document.write("print a,b,c,d => "+a+" , "+b+" , "+c+" , "+d+"<br>");
+// test2. 
+	// print1 : 보기  1)산술연산    2)문자열 이어짐   3)Error(안나온다)
+	document.write("print1 a+b+c+d => "+a+b+c+d+"<br>");
+	b=100;
+	document.write("print2 a+b+c+d => "+a+b+c+d+"<br>");
+	// print1 : 보기  1)산술연산    2)문자열 이어짐   3)Error(안나온다)
+	document.write("print3 a+b+c+d => "+(a+b+c+d)+"<br>");
+	
+// test3. 다양한 자료형 => 문자, 정수, 실수, Boolean
+	var n1=100, n2=123.456;
+	var b1=(20>30), b2=(20>10);
+	document.write("test3 : n1,n2,b1,b2 => "+n1+" , "+n2+" , "+b1+" , "+b2+"<br>");
+
+// test4. 객체(Object) : 여러 데이터를 묶은 덩어리
+	var member={
+		id:"banana",
+		password:"12345",
+		name:"홍길동",
+		age:100
+	};
+	document.write("test4 => id: "+member.id+" , password:"+member.password+"<br>");
+	document.write("test4 => name: "+member.name+" , age:"+member.age+"<br>");
+
+// test5. 문자열 함수	
+	var s="Hello JavaScript Love !!!";
+	document.write("test5 => s.length : "+s.length+"<br>");
+	document.write("test5 => s.charAt(4) : "+s.charAt(4)+"<br>");
+	document.write("test5 => s.replace('l','bbb') : "+s.replace('l','bbb')+"<br>");
+	document.write("test5 => s.replace 정규식 적용 : "+s.replace(/l/gi,'bbb')+"<br>");
+	document.write("test5 => s.toUpperCase() : "+s.toUpperCase()+"<br>");
+
+// test6. 숫자 데이처 처리 함수
+// 6.1) 숫자에 "," 넣기 (숫자->문자)
+// => toLocaleString('en') : Number와 Date Type의 내장함수이며, 
+//	    인자 ('en')로 들어온 지역의 숫자 포맷으로 숫자가 표기되며 뒤에 시스템에 따라서 소숫점이 표시 될 수 있음.
+//	    만약 지역값을 주지 않으면 해당 시스템의 지역값에 따라 표기됨
+//	    - 소수점 이하 제거기능 추가 .split(".")[0] 
+	var n=1234567.899;
+	document.write("test6.1) => "+Number(n).toLocaleString('en')+"<br>");
+	document.write("test6.1) => split 추가  "+Number(n).toLocaleString('en').split(".")[0]+"<br>");
+
+// 6.2) 숫자에서  "," 제거하기 (문자->숫자)
+//    : 문자함수 replace(",","") 활용 	
+	var s="1,234,567";
+	document.write("test6.2) => "+s.replace(",","")+"<br>");
+	// 위의 경우 첫 "," 에만 적용됨 -> 정규식으로 해결
+	document.write("test6.2) 정규식 적용 => "+s.replace(/,/gi,"")+"<br>");
+	// /,/gi -> g:발생할 모든 패턴에 적용 / i: 대소문자 구분 안함
+</script>
+</head>
+<body>
+<hr>
+<h2><pre>
+** Java Script Variable **
+
+** test1. 기본자료형 변수의 선언과 출력  
+	-> Type 없이 var 로 정의하며 대입 값에 따라 Type을 가짐
+	-> var 정의 없이도 사용가능
+** test2. 기본자료형 변수의 특징과 출력  
+** test3. 다양한 자료형 => 문자, 정수, 실수, Boolean
+
+** test4. 객체(Object) : 여러 데이터를 묶은 덩어리
+** test5. 문자열 함수
+** test6. 숫자에 "," 넣기 와  "," 제거하기
+
+</pre></h2>
+</body>
+</html>
