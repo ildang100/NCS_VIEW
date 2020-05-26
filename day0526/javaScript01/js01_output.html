@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** JavaScript Basic : output **</title>
+<script>
+	// 1.1) 쉬운 출력
+	document.write("test01: 쉬운출력1 'Hello JavaScript' !!!<br>");
+	document.write("test01: 쉬운출력2 'alert' 으로 Test !!!<br>");
+	alert(" 'alert' : 알리다, 초롱 초롱한 ~~ ");
+	
+	/* 1.2) 주석
+	여러줄 주석  */
+	// 한줄 주석 -> Java 와 동일 
+</script>
+
+</head>
+<body>
+<h2><pre>
+** JavaScript Basic : output **
+
+1. script tag 내 의 기본사항
+1.1) 쉬운 출력 
+1.2) 주석
+
+------------------------------------------
+
+2. JavaScript 사용방법 (inLine, internal, external)
+2.1) inLine Coding
+=> 이벤트 리스너, url 
+<button onclick="alert('inLine Coding 1 _ 이벤트 리스너 Test 중 ~~~')">inLine Test1_eventL</button>
+<a href="javascript:alert('inLine Coding 2 _ url Test 중 ~~~')">inLine Test2_url</a>
+
+=> aTag 다양한 활용
+<a href="#" onclick="history.back()">[다시하기_eventL]</a>
+<a href='javascript:history.go(-1)'>다시하기_url </a>
+
+2.2) internal Coding
+=> 문서 내부에서 script Tag 사용하기
+
+2.3) external Coding
+=> 텍스트 화일, 확장자.js 
+=> 사용법 
+	script Tag 의 src="mycode.js" 로 ...
+------------------------------------------
+</pre></h2>
+<script src="mycode.js">
+// 반드시 end Tag 를 명시 해야함.
+// HTML5 부터 이곳에 자바스크립트 코드 추가 작성하면 안 됨
+</script>
+</body>
+</html>
