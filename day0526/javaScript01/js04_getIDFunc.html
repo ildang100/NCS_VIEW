@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** getID & function **</title>
+<script>
+// test1. Tag 전달
+	function changeColor() {
+		var t = document.getElementById("test1");
+		if (t.style.color=="red") t.style.color="blue" ;
+		else t.style.color="red" ;
+	} // changeColor() 
+
+// test2. Tag의 값 (value) 전달
+// => input Tag (n1, n2) 에 입력된 값을 받아와서,
+//    add 연산 후 
+//    n3 에 결과 출력
+	function adder() {
+		var num1 = document.getElementById("n1").value; // 문자형
+		var num2 = document.getElementById("n2").value; // 문자형
+		document.getElementById("n3").value = parseInt(num1)+parseInt(num2);
+	} 
+
+// Test3. Image Change 와 src 속성값 비교
+// => toggle 방식으로 구현 해 보세요   
+//    if (현재 이미지가 a 면)  ~~~.src= 'b' ;
+//    else  ~~~.src='a'; 
+// =>(document.getElementById('image').src == '../image/aaa.gif') : X
+
+	function changeImage() {
+		if (document.getElementById("image").src.match("../image/jerry01.gif")) 
+			 document.getElementById("image").src="../image/jjang9.gif";
+		else document.getElementById("image").src="../image/jerry01.gif";
+	} // changeImage()
+	
+// Test4. function setClock : html Tag에 컨텐츠 넣기
+	function setClock() {
+		var now = new Date();
+		
+		now.get
+		var t = "DateTime: "
+			+ now.getFullYear()+"년"+(now.getMonth()+1)+"월"+now.getDate()+"일_"
+			+ now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
+		document.getElementById("clock").innerHTML=t;
+		
+		setTimeout("setClock()",1000); // 단위 : 1/1000초
+	} // setClock()
+
+
+</script>
+</head>
+<body onload="setClock()">
+<h2><pre>
+test1. Tag 전달 => getElementById 
+<span id="test1">getElementById Test</span> 
+<span id="test1">Id 중복 Test</span>
+=> Id 중복시 실행은 되지만 첫번째 id 만 인식 함.
+<button onclick="changeColor()">Click, ChangeColor</button>
+
+test2. input Tag의 값 (value) 전달
+<b>** Adder Test **</b>
+number1 : <input type="number" id="n1" value="123" >
+number2 : <input type="number" id="n2" value="456" >
+*Result : <input type="number" id="n3"> 
+<button onclick="adder()">ADD</button>
+
+test3. Image의 src 속성 Change
+<img src="../image/jjang9.gif" id="image"
+		width=300 height=200>
+<button onclick="changeImage()">Click, ChangeImage</button>
+
+test4. html Tag에  Contents 출력하기
+=> 시간 표시하기
+=> 문서의 실행과 동시에 출력 되도록 ...  
+=> body 의 onload 이벤트를 이용  (자동실행)
+
+<span id=clock style="color:blue;">DateTime</span>
+
+** setTimeout("실행할 JS코드",코드실행대기시간)
+=> 지정된 대기시간(단위 1/1000초)후에 지정된 JS코드를 실행
+=> 타이머설정 효과
+</pre></h2>
+</body>
+</html>
