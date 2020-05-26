@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** 내장함수 eval 을 이용한 계산기 **</title>
+<style>
+	button { width:50px; }
+</style>
+<script>
+	var bool = 1 ;
+	function input(i) {
+		if( ( i == '+' || i == '-' || i == '*' || i == '/' ) && bool == 0 ) {
+			document.getElementById("display").value += i;
+			bool = 1;
+			console.log(bool);
+		} else if ( i >= '0' && i <= '9' ) {
+			document.getElementById("display").value += i;
+			bool = 0;
+			console.log(bool);
+		} else if (bool == 0 ){
+			document.getElementById("display").value += i;
+		}
+		
+	}
+	function clearExpression() {
+		document.getElementById("display").value='';
+		bool = 1;
+	}
+	function compute() {
+		document.getElementById('display').value=eval(document.getElementById('display').value);
+	}
+</script>
+
+</head>
+<body>
+<h3>** 내장함수 eval 을 이용한 계산기 **</h3>
+=> eval : 문자열을 수식으로 바꾸어 계산을 해줌
+<hr>
+display : <br>
+<input id="display" size="27">
+<br>
+<button onclick="input('7')">7</button>
+<button onclick="input('8')">8</button>
+<button onclick="input('9')">9</button>
+<button onclick="input('/')">/</button>
+<br>
+<button onclick="input('4')">4</button>
+<button onclick="input('5')">5</button>
+<button onclick="input('6')">6</button>
+<button onclick="input('*')">*</button>
+<br>
+<button onclick="input('1')">1</button>
+<button onclick="input('2')">2</button>
+<button onclick="input('3')">3</button>
+<button onclick="input('-')">-</button>
+<br>
+<button onclick="input('0')">0</button>
+<button onclick="input('+')">+</button>
+<button onclick="input('(')">(</button>
+<button onclick="input(')')">)</button>
+<br>
+<button onclick="clearExpression()">Clear</button>
+<button onclick="compute()">Enter</button>
+
+</body>
+</html>
