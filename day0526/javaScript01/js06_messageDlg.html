@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Message Dialog **</title>
+<style>
+button {
+	width: 120px;
+	height: 50px;
+	background-color: silver;
+	border-radius: 15px;
+	border: 5px solid LightGray;
+	text-align: center;
+	text-shadow: 2px 2px 2px navy;
+	font-size: 1.2em;
+	color: aqua;
+}
+</style>
+<script>
+	function confirmTest() {
+		if (confirm("정말 삭제 하시겠습니까 ? \n Yes 면 '확인', No 면 '취소' 를 선택하세요 ~~"))
+			document.write("삭제 되었습니다 ~~");
+		else
+			document.write("삭제가 취소 되었습니다 ~~");
+	}
+
+	function promptTest() {
+		// 창을 띄운 후 입력된 값을 받아 변수에 저장할 수 있음
+		// 매개변수 2개 사용 하면 default 값 입력 가능
+		var s= prompt('오늘밤 받고 싶은 선물을 마음껏 적으세요 ~~~') ;
+		if (s=='') alert("아무것도 입력하지 않고 확인을 눌렀습니다 ~~");
+		else if (s==null) alert("취소 또는 바로 다이얼로그를 닫았습니다 ~~");
+		else alert("당신의 선택 => "+s)
+		
+		var age=prompt("나이를 입력 하세요 ~~ ",20);
+		if (age>20) alert("당신은 구입 가능 합니다 ~~");
+		else alert("당신은 구입하려면 부모의 동의가 필요 합니다 !!!");
+	}
+</script>
+
+</head>
+<body>
+	<h2>** Message Dialog **</h2>
+	<button onclick="alert(' Message Dialog Alert Test 중 ~~~ ')">alert</button>
+	<br>
+	<button onclick="confirmTest()">confirm</button>
+	<br>
+	<button onclick="promptTest()">prompt</button>
+	<br>
+</body>
+</html>
