@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** 조건문: If else , Switch case **</title>
+<script>
+// test1. 
+	if (1000<100) alert("~~ True 입니다 ~~");
+	else alert("~~ False 입니다 ~~")
+// test2.
+	var now = new Date();
+	var hh = now.getHours();
+	/*
+	if (hh<6) alert("쿨쿨 잠자고 있습니다 ~~");
+	else if (hh<9) alert("아침먹고 학원 가기 ~~~");
+	else if (hh<13) alert("학원에서 열심히 수업 중  ~~~");
+	else if (hh<14) alert("가장 즐거운 점심시간  ~~~");
+	else if (hh<18) alert("꾸벅 꾸벅 졸면서 수업중  ~~~");
+	else alert("~~~ 자 유 시 간 ~~~");
+	*/
+// test3. 위의  test2를 중첩 if 로 변경하기	
+	if (hh<6) alert("쿨쿨 잠자고 있습니다 ~~");
+	else {
+		if (hh<9) alert("아침먹고 학원 가기 ~~~");
+		else { 
+			if (hh<13) alert("학원에서 열심히 수업 중  ~~~"); 
+			else { 
+				if (hh<14) alert("가장 즐거운 점심시간  ~~~");
+				else {
+					if (hh<18) alert("꾸벅 꾸벅 졸면서 수업중  ~~~");
+					else alert("~~~ 자 유 시 간 ~~~");
+				} // else4
+			} // else3
+		} // else2
+	} // else1
+
+// test4. 
+// 4.1) Date 에서 월을 가져와서 alert으로 계절 출력하기 (if else)
+//	=> 봄:3,4,5  여름:6,7,8  가을:9,10,11  겨울:12,1,2
+//	=> var mm=now.getMonth()+1 ;
+// 	     달의 경우에는 +1 을 해야 정확한 달이 됨.
+//  => 집합 연산자 : && , || , !	
+//     3<=mm<=5 -> 틀린 관계식
+	if (mm>=3 && mm<=5)
+		alert('꽃피는 봄 입니다.~~~');
+	else if (mm>=6 && mm<=8)	
+		alert('무더운 여름 입니다.~~~');
+	else if (mm>=9 && mm<=11)	
+		alert('풍성한 가을 입니다.~~~');	
+	else alert('눈이 내리는 겨울 입니다.~~~');
+
+// 4.2) prompt Dialog 로 달을 입력 받아 계절 출력하기 (switch case)
+	var mm = prompt('test4.2) 달을 입력 하세요 (1~12) ~~',5);
+	// 입력 오류 확인
+	if (mm<1 || mm>12) {
+		alert('입력 오류 !! 확인 누르고 다시 하세요 ~~');
+		mm = prompt('test4.2) 달을 입력 하세요 (1~12) ~~',5);
+	}
+	// switch(mm){ //-> case 에서는 Type 비교를 함.
+	switch(parseInt(mm)){
+	 case 3: 
+	 case 4: 
+	 case 5: alert('switch: 꽃피는 봄 입니다.~~~'); break;
+	 case 6: case 7: case 8: alert('switch: 무더운 여름 입니다.~~~'); break;
+	 case 9: case 10: case 11: alert('switch: 풍성한 가을 입니다.~~~'); break;
+	 case 12: case 1: case 2: alert('switch: 눈이 내리는 겨울 입니다.~~~'); break;
+	 default : alert('switch Error: 지구에는 없는 계절 입니다. !!!');
+	} 
+</script>
+</head>
+<body>
+<pre><h2>
+** 조건문: If else , Switch case **
+
+1. 기본구문 : if else , switch case
+2. if else if
+3. 중첩 if  else
+4. 복합 : if else if / switch case
+</h2></pre>
+</body>
+</html>
