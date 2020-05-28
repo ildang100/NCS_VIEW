@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** DOM3 - JS 단계별 실행 절차 **</title>
+<script>
+//test1. 선언적 함수 와 변수	
+// => 파싱 단계에서는 선언적 함수 와 전역변수명이 정의됨
+// => 이때 변수의 값은 undefined 로 정의 되며 실행시에 값을 할당받음.
+
+// Before test
+	console.log("Test before name => "+name);
+	document.write("Before Name => "+name+"<br>");
+	document.write("Before first => "+first+"<br>");
+	document.write("Before first => "+first(5)+"<br>"); // 25
+	document.write("Before noName => "+noName+"<br>");  // undefined
+
+ 	var name="홍길동";
+	var first=123;
+	function first(x) {
+		return x*x;
+	} // first
+	var noName=function(x) {
+		return x*x;
+	} 
+
+// After test
+// => 변수 , 함수의 경우 변수 우선
+// => 실행단계에서 변수  first 가 값(123)을 할당 받았기 때문
+	document.write("After Name => "+name+"<br>");
+	document.write("After first => "+first+"<br>");
+// => 함수로 호출하는  경우 (오류)
+//    이미 함수 first() 는 존재하지 않음.
+//	document.write("After first => "+first(5)+"<br>");
+	document.write("After noName => "+noName+"<br>"); // function() { return x*x; }
+
+// test2. this 와  객체의 속성과 메서드 의 경우
+// => var person 은 파싱 단계에서 이름만 정의 (undefined)
+	
+	// Before
+	document.write("Before person => "+person+"<br>");
+/* 	document.write("Before person.name => "+person.name+"<br>");
+	document.write("Before person.eat => "+person.eat+"<br>");
+	document.write("Before person.eat('짜장면') => "+person.eat('짜장면')+"<br>"); */
+	var person={
+		name : "홍길동",
+		eat : function(menu) {
+				document.write(this.name+"씨는 점심식사로 "+menu+"를 맛있게 먹었습니다~~<br>");
+			},
+		study:function(kind) {
+				this.eat("짜장면");
+				document.write("그리고 "+kind+"를 열심히 공부 했습니다~~<br>");
+			},
+		first:function(x) {
+				return x*x;
+			}   
+	} // person
+	// After
+	document.write("After person => "+person+"<br>"); // [object Object]
+	document.write("After person.name => "+person.name+"<br>");
+	document.write("After person.eat => "+person.eat+"<br>");
+	document.write("After person.eat('짜장면') => "+person.eat('짜장면')+"<br>");
+	// => document.write 내에서  person.eat('짜장면')을 호출한 경우 
+	// 		-> 먼저 person.eat('짜장면') 을 실행한 후, 실행 결과 return 된 값을 출력해야 하는데,
+	//		   return 값이 없으므로 undefined 가 출력됨. 
+	// 		-> 그러므로 아래처럼 직접 호출, return 값이 있는  first(5) 와 비교.  
+	person.study("자바스크립트");
+	document.write("After person.first(5) => "+person.first(5)+"<br>");
+
+</script>
+</head>
+<body>
+<pre><h2>
+** DOM3 - JS 단계별 실행 절차 **
+1. 파싱단계 : 구문분석 단계
+	=> 선언적함수들과, 전역변수들을 정의 
+	=> 함수먼저, 다시 변수 정의 
+	=> 변수(객체형 포함)들은 이름만 정의하고 값은 실행시에 할당 
+	=> 파싱 단계에서는 undefined 값을 가짐.
+
+2. 실행단계
+	=> 순차적으로 실행 (함수의 정의는 건너뜀)
+
+</h2></pre>
+</body>
+</html>
