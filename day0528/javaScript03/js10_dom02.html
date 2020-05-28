@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** DOM2 - JS Process_ onload Event **</title>
+<script>
+// ** JS 의 event 처리
+// => JS 에서는 event listener 들이 객체(element)의 속성(property))으로 정의 
+//    이 속성의  값이 함수로 정의 되어있고 여기에 함수(익명함수로 정의)를 대입 하는 방식 으로 처리 
+// => 객체(element)별로 약 70여 개의 이벤트 리스너를 가질 수 있음
+ 
+// => window는 생략가능	
+//window.onload=function() {
+onload=function() {
+	document.getElementById("p1").style.backgroundColor="red";
+	document.getElementById("p3").style.backgroundColor="blue";
+} // onload
+</script>
+</head>
+<body>
+<pre><h2>
+** DOM2 - JS Process_ onload Event **
+=> 해결2 이벤트를 적용 : window.onload
+=> window 객체가 html 문서를 다 읽은 후 발생하는 이벤트
+=> JS 에서 window 객체는 생략가능
+
+<span id="p1">** Process 1 **</span>
+<script>alert("** Process 2 **");</script>
+<span id="p3">** Process 3 **</span>
+=> 실행순서 : 2 -> 1(red) -> 3(blue) 
+
+</h2></pre>
+</body>
+
+</html>
