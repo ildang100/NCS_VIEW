@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Variable 선언과 Scope Test **</title>
+<script>
+// test1) Variable
+// 1.1) 선언
+// var(재선언가능, 재할당가능)
+	var i=100; i="가나다"; i=123.456;
+	var i=333;
+// let(재선언불가능, 재할당가능)
+	let j=123; j="가나다"; j=111.222;
+//	let j=456; -> 오류
+
+// 	const(재선언불가능, 재할당불가능)
+	const PI=3.141592;
+//	PI=31415;
+//	const PI=678.99;
+
+// ** 그냥 할당해서 사용하는 경우 
+// => delete 가능함.
+// => function 내에서 선언 없이 바로 사용한 변수의 경우에는 
+//    파싱단계에서 함수 정의시 정의되고 값을 할당하며, 
+//    전역으로 사용가능해 짐으로 사용하지 않는것을 권장함. 
+	document.write('k before Test =>'+k+'<br>');  // 오류 : not defined
+	k="바로사용";
+	document.write('var i=>'+i+', let j=>'+j+', const PI=>'+PI+', k='+k+'<br>');
+
+// 1.2) Delete
+// var, let, const 로 정의한 변수는 delete 적용 안되고,
+// 정의 없이 사용한 변수 k에만 적용됨.
+	delete i; delete j; delete PI; // Error 발생 없고 적용 안됨. 
+	delete k;
+	document.write('Delete : var i='+i+', let j='+j+', const PI='+PI+'<br>');
+	// document.write('Delete : var i='+i+', let j='+j+', const PI='+PI+', k='+k+'<br>');
+	// => js11_varScope.html:28 Uncaught ReferenceError: k is not defined
+	
+// test2) Variable Scope Test 
+// 2.1) 전역변수 : 현재 script 내 어디서든 사용가능 	
+	var sum=100;
+	document.write('Before : sum='+sum+'<br>'); // 100 당연
+	document.write('function : f(10)='+f(10)+'<br>');
+	document.write('After : sum='+sum+'<br>');
+	
+	//document.write('f_name : name='+myname+'<br>'); // 오류  not defined
+	//test();
+	//document.write('function ii=>'+ii+'<br>'); // 오류  not defined 
+	document.write('function test1 =>'+test+'<br>'); // 사용가능
+
+// 2.2) 지역변수 : 정의된 function 내부에서만 사용가능
+// => var, let 등 명시적으로 선언된 지역변수는 실행시 정의되지만  
+// => test 처럼 바로 사용한 변수는 파싱단계에서  함수가 정의 될 때
+//    같이 정의되고 값이 할당되며, 전역으로 사용가능하므로 주의.
+	function f(cnt) {
+		var myname="홍길동";  
+		test="TestTest";   
+		// 선언 없이 바로 사용한 변수의 경우 전역으로 사용가능해 짐으로 사용하지 않는것을 권장함.  
+		document.write('f 내부 : sum='+sum+', name='+myname+'<br>');
+		sum=0;
+		for (var ii=0;ii<cnt;ii++) {
+			sum+=1;
+		} // for
+		document.write('after for : ii='+ii+'<br>');  
+		// ii 인식함
+		// => 반복자로 정의한 ii 는 function에 종속됨.
+		return sum;
+	} // f(cnt)
+	
+	function test(){
+		document.write('test() : name='+myname+'<br>');
+	} // test()
+	
+	document.write('function test2 =>'+test+'<br>'); 
+	
+</script>
+</head>
+<body>
+<hr><pre><h2>
+test1) Variable 선언
+
+=> 변수선언 : var(재선언가능, 재할당가능), let(재선언불가능, 재할당가능)
+=> 상수선언 : const(재선언불가능, 재할당불가능)
+=> Type : 정수, 실수, 문자열, boolean, null, undefined,
+          function(), Object 
+=> var생략 가능
+	-> 전역변수의 경우           
+	-> 차이점 : var 선언시에는 delete가 적용 되지 않고 변수와 값이 메모리에 남아있음 
+=> delete : 변수의 정의를 취소해줌	
+	-> var, let, const 로 정의한 변수는 delete 적용 안되고,
+	     정의 없이 사용한 변수에 적용됨.
+------------------------------------------
+test2) Variable Scope Test 
+
+=> for 구문과 변수범위 Test 
+=> 지역변수 i 의 범위는 { ... } 이 아니고 함수 f 전체의 영역이 됨 
+=> { ... } 이 아니고 함수 f에 종속됨 
+=> 지역변수 i 는 파싱 단계에서 함수와 함께 정의되며 이때 undefined 값을 가짐 
+
+</h2></pre>
+
+</body>
+</html>
