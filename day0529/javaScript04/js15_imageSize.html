@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>*** Image Size 조정하기 ***</title>
+<script>
+//1. 고전적 이벤트 처리방식
+ 
+	onload = function() {
+		var bcnt = 0 ;
+		var scnt = 0 ;
+		var image = document.getElementById('img');
+		var big = document.getElementById('big');
+		var small = document.getElementById('small');
+		big.onclick=function() {
+			scnt=0;
+			if (bcnt<10) {
+				image.width  += 10 ;
+				image.height += 10 ;
+				bcnt++ ;
+				scnt--;
+			} else alert('최대 크기 입니다~~') ;
+		} // big
+		small.onclick=function() {
+			bcnt=0;
+			if (image.width>10 && image.height>10 && scnt<10) {
+				image.width  -= 10 ;
+				image.height -= 10 ;
+				scnt++ ;
+			} else alert('최소 크기 입니다~~') ;
+		} // small
+	}  // onload 
+ 	
+// 2. 인라인+스크립트 방식	
+// 지역변수 사용시 => 버튼을 누를때마다 cnt 값 reset 그러므로 정확하게 count 될수없음
+// 전역변수 사용하고 big, small 각각 사용함
+// => 이때는 image 를 개별 function 내에 정의 해야함.
+
+ 	var bCount = 0 ;  // Big count 값
+	function imgBig() {
+		var image = document.getElementById('img');
+		sCount=0 ; // Small count 값 reset
+		if (bCount<10) {
+			image.width  += 10 ;
+			image.height += 10 ;
+			bCount ++ ;
+		}else { 
+			alert('최대 크기 입니다~~') ;
+			bCount = 0 ;
+		}
+	} // imgBig
+	var sCount = 0 ;
+	function imgSmall() {
+		var image = document.getElementById('img');
+		bCount=0 ; // Big count 값 reset
+		if (image.width>10 && image.height>10 && sCount<10) {
+			image.width  -= 10 ;
+			image.height -= 10 ;
+			sCount ++ ;
+		} else {
+			alert('최소 크기 입니다~~') ;
+			sCount=0 ;
+		} //if
+	} // imgSmall  
+
+// 전통(Traditional)방식으로 수정
+
+</script>
+</head>
+<body>
+<h2><pre>
+** 실습 :  image 와 버튼 2개                                                                                                                                                                                                                               
+=> 버튼1 : 이미지의 현재 크기를 10px 씩 10번 커지는 버튼
+=> 버튼2 : 이미지의 현재 크기를 10px 씩 10번 작아지는 버튼 
+=> 횟수를 초과하면 alert 으로 경고 메시지 출력하기 
+
+** 이해를 돕는 단어 **
+=> 속성 
+  * attribute : Tag 의 속성
+	-> 1. 속성(屬性), 특질
+	-> 2. 부수물, 딸린 물건, 붙어 다니는 것
+	-> 3. 속성·성질을 나타내는 말
+  * property : 객체에서 정의된 속성 (style 의 속성 등)
+	-> 1. 재산, 소유물
+	-> 2. 부동산
+	-> 3. 건물, 건물 구내 (부속건물 등)	
+
+=> DOM 객체를 지칭	: node 또는 element 라 함.
+  * node 
+  	-> 1. (나무줄기의) 마디
+	-> 2. (뿌리·가지의) 옹이
+	-> 3. (연결망의) 교점
+	
+  * element
+ 	-> 1. 요소, 성분
+ 	-> 2. 약간의 놀라움, 위험, 진실 등
+ 	-> 3. (집단·사회 내의 특정) 부류 		
+<hr>
+** Image **
+</pre></h2>
+<img src="../image/aaa.gif" id="img"><br>
+<button id="big" onclick="imgBig()">점점크게</button>&nbsp;&nbsp;
+<button id="small" onclick="imgSmall()">점점작게</button><br>
+
+<hr>
+<h3>** a Tag 의 url 이용한 event 처리 **</h3>
+<a href="javascript:imgBig();">클릭 점점크게</a>&nbsp;&nbsp;&nbsp;
+<a href="javascript:imgSmall();">클릭 점점작게</a><br>
+</body>
+</html>
