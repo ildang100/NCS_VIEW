@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Selector Test **</title>
+<script>
+  
+// window.onload= ....window객체는 생략 가능
+onload=function() {
+	 	gugu(); // -> gugu() 를 실행  
+ } // load 
+ 
+// onload=gugu(); // Error -> gugu() 의 결과값을 return
+// onload=gugu; // 가능
+ 
+function gugu() {
+	var d;
+	// 입력오류
+	while(true) {
+		//단 입력 받기 & 입력오류 확인
+		d=prompt('출력할 단을 입력하세요.(2~9)',5) ; 
+		if (d>9 || d<2) {
+			alert('잘못 입력 했습니다 ~~\n다시 입력 하세요~~') ;
+		}else break;  
+	} // while
+	// 구구단 처리	
+	var a=document.querySelectorAll('h4') ;
+	for (var i=0; i<a.length; i++) {
+		a[i].style.color='purple' ;
+		a[i].style.background = 'silver' ;
+		a[i].innerHTML=d+' * '+(i+1)+' = '+(d*(i+1));
+	} // for
+	// Title
+	var h=document.getElementById('title') ;
+	h.style.color='yellow' ;
+	h.style.background = 'green' ;
+	h.innerHTML=d+' 단 출력';
+}
+
+</script>
+</head>
+<!-- <body onload="gugu()"> -->
+<body>
+<pre>
+** 과제 **
+prompt Dialog 를 이용해서 숫자를 입력받아 해당 단의 구구단을 출력하세요~
+body 영역에 h4 태그를 이용해서 미리 디자인 해놓고 여기에 출력 하세요~~  
+</pre>
+<button onclick="gugu()">구구단출력</button>
+
+<h3 id=title></h3>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+</body>
+</html>
