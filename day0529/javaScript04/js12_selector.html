@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Selector_ id, tag, tag all **</title>
+<script>
+onload=function() {
+	// test1) ID
+	var h=document.getElementById("header");
+	h.style.color="yellow";
+	h.style.backgroundColor="green";
+	
+	// test2) Tag : document.querySelector('h3')
+	// 				-> 첫번째 Tag 1개에만 적용
+	var t=document.querySelector("h3");
+	t.style.color="blue";
+	t.style.backgroundColor="gray";
+	
+	// test3) Tag All : document.querySelectorAll('h4')
+	//					-> 모두 선택해서 배열로...
+	var a=document.querySelectorAll("h4");
+	//for (var i in a) {	// 실행은 되지만 console 에  오류 
+	for (var i=0;i<a.length;i++) {	
+		a[i].style.color="red";
+		a[i].style.backgroundColor="aqua";
+		// h4 Tag 의 컨텐츠 변경 하기 
+		// => " colorChange 성공 i => 0 (i 값 출력 ) " 
+		// => 이때 i 는 이탤릭체 적용 하기
+		//a[i].innerHTML=' colorChange 성공 i =><i>'+i+'</i>';
+		a[i].innerText=' colorChange 성공 i =><i>'+i+'</i>';
+	} // for
+	
+} // onload
+</script>
+</head>
+<body>
+<h2><pre>
+** Selector_ id, tag, tag all **
+
+test1) ID : document.getElementById('header')
+<span id="header">getElementById Test</span>
+
+test2) Tag : document.querySelector('h3')
+             -> 첫번째 Tag 1개에만 적용
+             
+test3) Tag All : document.querySelectorAll('h4')
+             -> 모두 선택해서 배열로 리턴             
+</pre></h2>
+	<h3>Tag 선택자 Test1</h3>
+	<h3>Tag 선택자 Test2</h3>
+	<h3>Tag 선택자 Test3</h3>
+	
+	<h4>TagAll 선택자 Test1</h4>
+	<h4>TagAll 선택자 Test2</h4>
+	<h4>TagAll 선택자 Test3</h4>
+<pre>
+** 과제 **
+prompt 를 이용해서 숫자를 입력받아 해당 단의 구구단을 출력하세요~
+body 영역에 h4 태그를 이용해서 미리 디자인 해놓고 여기에 출력 하세요~~ 
+=> js12_selectorTest.html
+</pre>	
+</body>
+</html>
