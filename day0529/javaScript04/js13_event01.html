@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Event Basic **</title>
+<script>
+// test2) 인라인+스크립트 방식
+	function scriptTest() {
+		alert('~~ 이벤트 모델2 인라인+스크립트 방식 Test ~'); 
+	}
+// test3) 고전적(Traditional) 방식 과 this
+	onload=function() {
+		var b=document.getElementById("trad");
+		b.onclick=function() {
+			alert('~~ 이벤트 모델3 고전적(Traditional) 방식 Test ~'); 
+			b.style.color="red";
+			this.style.backgroundColor="yellow";
+			//this.innerHTML+="★";
+			this.textContent+="★ ☆";
+			// -> this 사용하면 이벤트 발생 객체 자신에 접근 가능
+			// -> textContent 속성 : 자기자신의 문자를 의미
+		} // b.onclick 
+		
+// test4) Remove (기본 이벤트 제거)
+		var a=document.getElementById("remove");
+		a.onclick=function() {
+			return false;
+			// function이 false를 return하면 실행되지 않음
+			// -> 기본 이벤트 제거
+		} // a.onclick
+		
+	} // onload
+
+</script>
+
+</head>
+<body>
+<h2><pre>
+** Event Basic **
+=> onClick = function() : onClick="gugu()"
+      이벤트속성 = 대응되는 함수를 이벤트 핸들러 또는 이벤트 리스너 라고 함. 
+=> 이벤트속성 -> on 을 제외한 Click을 이벤트 이름 또는 이벤트 타입 이라함.
+=> 이벤트 모델
+	document 객체에 이벤트를 연결하는 방법을 이벤트 모델 이라함.
+	종류-> 1)인라인 방식, 2)인라인+스크립트, 3)고전적(Traditional) 방식
+
+** 실습
+test1) 인라인 방식
+<button onclick="alert('~~ 이벤트 모델1 인라인 방식 Test ~');" >Event1_inLine</button> 
+test2) 인라인+스크립트 
+<button onclick="scriptTest()">Event2_inLineScript</button>
+test3) 고전적(Traditional) 방식
+<button id="trad">Event3_Traditional</button>
+	* this
+	-> 이벤트 핸들러 내에서 this를 사용하면 이벤트 발생 객체 자신에 접근 가능
+	
+test4) 기본 이벤트 제거 (Remove) 
+<a href="http://www.naver.com" id="remove">EventRemoveTest</a>
+
+</pre></h2>
+</body>
+</html>
