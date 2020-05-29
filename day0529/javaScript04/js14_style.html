@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** JS Style **</title>
+<script>
+// Color Gradation 
+onload=function() {
+	var output='';
+	for(var i=0; i<256; i++) {
+		output+='<div></div>';
+	}
+	document.body.innerHTML=output;
+	var divs=document.querySelectorAll('div');
+	for (var i=0; i<256; i++){
+		divs[i].style.height='2px';
+		divs[i].style.backgroundColor='rgb('+i+','+i+','+50+')';
+		// rgb(0,100,256)
+	}
+} // onload
+</script>
+</head>
+<body>
+<h2><pre>
+** JS Style **
+=> Style 적용시 주의 사항  
+	스타일의 속성명 그대로 사용할 수 없음 (-사용할수없기 때문)	
+	-으로 연결되는 뒷부분의 첫글자를 대문자로 변경해서 사용하면 됨
+	Ex) background-image => backgroundImage
+</pre></h2>
+</body>
+</html>
