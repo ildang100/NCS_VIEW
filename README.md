@@ -18,4 +18,12 @@ HTML/CSS/JAVASCRIPT 학습
     * div / span
     * div 의 style 속성
     * 시멘틱 태그 header nav section footer
- * CSS 
+ * CSS
+    * 스타일 시트 우선순위
+    * 계층구조와 우선순위
+    * Selector
+    * style - font-familt / font-size / text-decoration / font-stretch / line-through
+    * background-image / border / border-style / border-color / margin / padding
+    * float / position / 절대위치 /상대위치
+    * white-space / text-overflow / ellipsis
+    * Layout
