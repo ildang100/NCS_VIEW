@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** CountDown 과 화면전환 **</title>
+<script src="../jqLib/jquery-3.2.1.min.js"></script>
+<script>
+// ** 자동 화면전환	**
+// 1) meta Tag
+// => http-equiv="refresh" content="5;url=http://www.naver.com"
+
+// 2) location 함수 (window.location...)
+// => href='url'     : 화면전환 (히스토리에 남음 -> 이전화면 으로 이동가능)
+// => replace('url') : 화면전환 (히스토리에 남지 않음 -> 이전화면 으로 이동불가)
+// => reload() : 새로고침
+ 
+
+// ** 시간 관련 함수
+// 1) 10초 후 Page 이동 
+// => setTimeout("이동명령문",time)
+  	setTimeout("location.href='../javaScript04/snowVillage.html'",1000*10);	
+
+// 2) 일정시간 간격
+// => setInterval('실행할 함수 또는 코드',반복주기)
+// => 10초 동안 9~0 까지 출력하기	(countDown) 
+	var sec = 9;
+	function countDown() {
+		$('#cd').html(sec) ;
+		if (sec!=0) sec--;
+	}
+	setInterval("countDown()",1000) ;
+
+</script>
+
+</head>
+<body>
+<div align="center">
+<h2>** CountDown 과 화면전환 **</h2>
+=> 10초 후 이동 합니다 ~~<br>
+=> 아래에 숫자가 표시 되도록 해 보세요 ~~<br>
+<span id=cd style=font-size:15em>10</span><br> 
+</div>
+<hr>
+<pre><h3> 
+** location 함수 **
+  -> href: 화면전환 (히스토리에 남음 -> 이전페이지로 이동가능)
+  -> replace: 화면전환 (히스토리에 안남음 -> 이전페이지로 이동불가능)
+  -> reload : 새로고침
+</h3></pre>
+<button onclick="location.href='../javaScript04/snowVillage.html'">화면전환(href)</button>&nbsp;&nbsp;
+<button onclick="location.replace('../javaScript04/snowVillage.html')">화면전환(replace)</button>&nbsp;&nbsp;
+<button onclick="location.reload()">새로고침(reload)</button><br>
+
+
+</body>
+</html>
