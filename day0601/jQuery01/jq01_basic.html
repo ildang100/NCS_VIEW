@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** JQuery Basic **</title>
+<!-- 1. 라이브러리 연결 
+1) 다운로드 :  http://jquery.com -->
+<script src="../jqLib/jquery-3.2.1.min.js"></script>
+
+<!-- 2) CDN 호스트 이용 : 인터넷이 연결되어있어야 가능
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+-->
+<!-- 2. JQuery 라이브러리 사용하기
+=> window.jQuery(선택자)......
+=> jQuery : $  
+=> $(선택자).메서드(매개변수)
+=> 매개변수 : 1개, 2개, 여러개 {...}, 익명함수
+=> 메서드 :  ready외 이벤트메서드들, text, html , attr, css
+
+=> ready:문서 객체 준비 완료됨을 의미하는 기본 이벤트
+	-> $(document).ready(function() { ......});
+	-> 자바스크립트의 window.onload=function() {   .....  } 
+            이벤트와 같은 기능	
+-->
+<script>
+	$(document).ready(function(){
+		//1) 출력
+		//document.write("~~ Hello JQuery !!! ~~~");
+		//alert("~~ Hello JQuery !!! ~~~ 하하하 ~~~");
+		// 2) 선택자 : String Type , css 선택자와 동일
+/*		$("h2").css("color","red");
+		$(".ccc").css("color","blue");	
+		$("#iii").css("color","green");	
+		
+		// 3) 메서드의 속성 처리
+		// => 매개변수 2개 ("속성명" , "속성값")
+		// => 매개변수 1개 를  객체로  
+		// 			{name:"홍길동", age:100, ..... } 
+		$(".ccc").css("color","navy");	
+		$(".ccc").css("background","silver");	
+		$("#iii").css({
+						color:"yellow",
+						background: "blue"
+					});
+		*/		
+		// 4) Node 의  컨텐츠 인식하기
+		// => text() , html()
+		var text=$("span").text(); // 모든 span에  적용, only text
+		var html=$("span").html(); // 첫번째 span만 인식, html Tag 포함
+		alert("text=> "+text);   
+		alert("html=> "+html);   
+		
+		// 5) Node 에 컨텐츠 출력
+  		//$("span").text("<b>하하하 호호호</b>"); // 모든 span, only text
+		$("span").html("<b>하하하 호호호</b>");   // 모든 span, html Tag적용
+		
+		// 6) 다양한 선택자 (Selector)
+		// => Style 에 적용했던 선택자 모두 사용가능
+		// => id, class, 상속관계, 상태
+		$("#iii").html("<a href='http://www.naver.com'>idTest:Naver</a>");
+		$(".ccc").html("<a href='#'>ClassTest</a>");
+		// 첫번째 child 에 해당하는 span
+		$("span:nth-child(1)").css({color:"aqua",
+					background: "green"
+				});
+		// 짝수번째 child 에 해당하는 span
+		$("span:nth-child(2n)").css({	color:"pink",
+			background: "gray"
+		});
+		
+	}); // ready
+</script>
+
+</head>
+<body>
+<pre><h2>
+** JQuery Basic ** 
+** 1) JQuery 출력 
+** 2) 선택자 (Selector) Test 
+** 3) Tag 의 값 인식하기 
+	<span class=ccc><b>** 4) Tag에 Text 출력</b></span>
+	<span class=ccc><b>** 5) 다양한 선택자 (Selector)</b></span>
+	<span id=iii><b>** => id, class, 상속관계 Test</b></span>
+	<span><b>** 6) 다양한 선택자 (상속)Test Test</b></span>
+</h2></pre>
+</body>
+</html>
