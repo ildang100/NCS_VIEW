@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** 속성 처리 메서드 attr **</title>
+<script src="../jqLib/jquery-3.2.1.min.js"></script>
+<script>
+//$(document).ready(function(){
+$(function(){	
+	// 1) 속성가져오기	
+	// => attr 메서드의 매개변수를 1개(속성명)만 입력하면 
+	//    해당 매개변수 속성의 값(value) 을 제공
+	var s=$('script').attr('src');
+/*	alert('Script Tag src => '+s);
+	alert('img Tag id => '+$('img').attr('id'));
+	alert('img Tag class => '+$('img').attr('class'));
+	// => 첫번째 img Tag 의 속성값 가져옴.
+	// => 그러므로 class 는 undefined
+	alert('img Tag class .m5 => '+$('.m5').attr('class'));
+*/	
+	// 2) 속성 지정하기
+	// 2.1) 하나씩 지정하기 (매개변수 2개 사용) 
+	$('#m1').attr('src', '../image/aaa.gif');
+	$('#m1').attr('width',100);
+	$('#m1').attr('height',150);
+	
+	// 2.2) 한번에 여러속성 지정하기 ({...} 사용)	
+	$('#m2').attr({
+				src:'../image/bbb.gif',
+				width: 100,
+				height: 150
+			});
+	
+	// 2.3) 익명함수로 지정하기
+	// 2.3.1) src 속성에 적용
+	// => 익명함수 function(i)  
+	//	    매개변수는 필요시에 필요한것만 는 지정하여 사용할수있다
+	//    즉, 필요 없을때에는 매개변수 없이도 사용할 수 있다. 
+	//    이때 매개변수명 (i) 는 임의로 지정가능하고(i,j,k...), 
+	//    값은 인덱스는 0 부터 순서대로 적용됨.
+	// => 그리고 이때 이 익명함수의 리턴값이 속성에 적용됨.	
+	
+	$('#m3').attr({
+				src:function(i) {
+					var size=(i+2)*100;
+					return 'http://placehold.it/'+size+'x100';
+					// http://placehold.it => 더미 이미지를 생성해 주는 서비스
+					// => http://placehold.it/200X100 
+				} // src
+			}); // m3_attr
+	// 클래스에 적용하기		
+	$('.m5').attr({
+				src:function(i) {
+					var size=(i+2)*100;
+					return 'http://placehold.it/'+size+'x100';
+				} // src
+			}); // m3_attr		
+	
+	
+	
+}); // ready
+
+
+
+
+</script>
+</head>
+<body>
+<h2>** 속성 처리 메서드 attr Test **</h2>
+=> Node (Tag, Dom객체) 의 속성(Attribute) 조작 <br>
+<hr>
+<img id="m1"><img id="m2">
+<img id="m3"><img id="m4"><br>
+<img class="m5"><br>
+<img class="m5"><br>
+<img class="m5"><br>
+</body>
+</html>
