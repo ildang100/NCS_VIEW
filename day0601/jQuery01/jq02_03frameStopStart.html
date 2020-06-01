@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Frame Animation Start & Stop **</title>
+<script src="../jqLib/jquery-3.2.1.min.js"></script>
+<script>
+//Window 객체의  time 관련 내장 함수 
+//=> setTimeout("실행할 자바코드",코드실행대기시간) : 화면전환에 이용
+//		setTimeout("location.href='login_form.jsp'", 1000*10);
+//		setTimeout("location.href='login_form.jsp?id=banana'", 1000*10);
+//=> setInterval("실행할 자바코드",반복주기)
+
+//=> cleartInterval : setInterval 의 지정을 취소해줌
+//	 var a=setInterval("실행할 자바코드",반복주기);
+//	 cleartInterval(a) :  setInterval 멈춤
+
+var frames=[
+	'0.png','1.png','2.png','3.png',
+	'4.png','5.png','6.png','7.png',
+	'8.png','9.png','10.png','11.png',
+	'12.png','13.png','14.png'];
+
+var i=0 ;
+function running() {
+	$img=$('#img') ;
+	img.src=frames[i % frames.length] ;
+	// 0 ~ 14 
+	i++;
+} 	
+
+var a=setInterval('running()',100) ;
+console.log("**** a 1 => "+a) ;
+function stop() {
+	clearInterval(a);
+	console.log("**** a (in stop) => "+a) ;
+	a=1;
+}
+
+function start() {
+	console.log("**** a (in start) => "+a) ;
+	if (a==1) a=setInterval('running()',100) ;
+	// a 에 setInterval('running()',100) 
+    // 함수가 누적되면 값이 달라져서 속도 빨라지고 stop 안되므로
+    // clearInterval 했을때만 a에 값을 줌.
+}
+
+</script>
+</head>
+<body>
+<h3>** Frame Animation Start & Stop **</h3>
+<h3>=> Window 객체의 setInterval 함수를 이용</h3>
+<h3>=> setInterval('실행할 함수 또는 코드',반복주기)</h3>
+<img id='img' />
+<hr><br><br>&nbsp;&nbsp;&nbsp;&nbsp;
+<button onclick="start()">Start</button>&nbsp;&nbsp;&nbsp;
+<button onclick="stop()">Stop</button> 
+</body>
+</html>
