@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Frame Animation **</title>
+<script src="../jqLib/jquery-3.2.1.min.js"></script>
+<script>
+// ** Node 인식 방법의 차이
+// => 1) JS: var img = document.getElementById('img') -> Node로 인식    
+// => 2) JQ: var img = $('#img') -> jQuery 의 메서드의 적용대상으로 인식
+// => 3) JQ를 사용하면서  JS 처럼 Node로 인식 :  $img = $('#img')
+// => 결과적으로는 1), 2), 3) 모두 동일 
+
+// => setInterval('실행할 함수 또는 코드',반복주기)
+// => 반복주기 : 1/1000초
+	// $(document).ready(function(){
+	// => (document).ready 생략가능
+	$(function(){	
+		
+		var frames=[
+			'0.png','1.png','2.png','3.png',
+			'4.png','5.png','6.png','7.png',
+			'8.png','9.png','10.png','11.png',
+			'12.png','13.png','14.png'];
+		
+		//var img = document.getElementById('img')
+		//var img = $('#img');
+		$img = $('#img');
+		var i=0;
+		setInterval(function() {
+			// frames 의 인덱스값을 0~14 까지 순차적으로 반복
+			// 되도록 공식을 만들어 보세요 ~~
+						img.src=frames[i % frames.length]
+						// i 의 범위 : 0~(frames.length-1)
+		 				i++;
+						if(i==frames.length) i=0;
+			
+		}, 100) // 1/1000(초) -> 1초
+	}); // ready
+</script>
+
+</head>
+<body>
+<h3>** Frame Animation **</h3>
+<h3>=> Window 객체의 setInterval JS 함수를 이용</h3>
+<h3>=> setInterval('실행할 함수 또는 코드',반복주기)</h3>
+<img id=img /> <br>
+</body>
+</html>
