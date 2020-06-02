@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Id, Class & Hover event2 : css 메서드로 처리 **</title>
+<script src="../jqLib/jquery-3.2.1.min.js"></script>
+<script>
+// JQuery hover() : mouse Hover 이벤트 처리 메서드
+// => hover(f1 , f2) : f1은 마우스hover시 실행, f2 반대일때 실행
+
+// 과제 : jq04_....01코드의 addClass 와 removeClass 를 css 메서드로 변경하기
+$(function(){
+	$('#box').hover(function() {
+		// css 메서드로 처리
+		$('#box').css({
+			width:100,
+			height:100,
+			borderRadius:50,
+			background:'Green' 
+		});
+	}, function() {
+		// css 메서드로 처리
+		$('#box').css({
+			width:100,
+			height:100,
+			borderRadius:0,
+			background:'Red' 
+		});
+	}); // hover
+	
+}); // ready
+</script>
+<style>
+	#box {width:100px; height:100px; background-color:red;}
+</style>
+</head>
+<body>
+<h2>** Id, Class & Hover event **</h2>
+<h2>=> css 메서드로 처리 **</h2>
+<div id="box"></div>
+
+</body>
+</html>
