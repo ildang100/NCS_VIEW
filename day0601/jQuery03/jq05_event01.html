@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Event Test01 **</title>
+<script src="../jqLib/jquery-3.2.1.min.js" ></script>
+<script>
+$(function(){
+	// 1) Click
+	$('#cc').click(function(){
+		alert("~~ JQuery Click Test ~~");
+	}); // cc_click
+	
+	// 2) hover, this
+	// => hover(f1,f2)
+	//    f1: 마우스 hover , f2: 마우스 out
+	// => $(this) : 선택자로서 현재의 select된 객체(노드, Tag) 자신
+	var c2;
+	$('.hh').hover(function() {
+		// 초기 color 값 보관 했다가 f2 에서사용 
+		console.log('$(this)...=>'+$(this).css('color'));
+		c2 = $(this).css('color');
+		console.log('var c2=>'+c2);
+		
+		//$('.hh').css({ .... })
+		$(this).css({
+			backgroundColor: "gray",
+			color: "aqua",
+			width: "300px" 
+		});
+	}, function() {
+		$(this).css({
+			backgroundColor: "",
+			color:c2,
+			width: ""
+		});
+		
+	}); // hh_hover
+	
+	
+}); // ready
+</script>
+</head>
+<body>
+<h2>** Event Test01 **</h2>
+<h2 id="cc">=> Click</h2>
+<h2 class="hh" style="color:red">=> Hover01, this</h2>
+<h2 class="hh" style="color:blue">=> Hover02, this</h2>
+<h2 class="hh" style="color:green">=> Hover03, this</h2>
+</body>
+</html>
