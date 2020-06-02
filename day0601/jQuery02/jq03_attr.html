@@ -55,13 +55,28 @@ $(function(){
 					return 'http://placehold.it/'+size+'x100';
 				} // src
 			}); // m3_attr		
+
+	// 2.3.2) width 속성에 적용 (매개변수 없이 사용)
+	$('#m4').attr({ 
+				src:'../image/ccc.gif',
+				width:function() {
+					var size=2;
+					return size*50;
+				}, 
+				height:150
+			}); // #m4_attr
 	
-	
-	
+	// 2.3.3) 매개변수를 사용해서  width 속성에 적용 
+	// => (매개변수값: 0~순차적으로 자동적용)
+	$('.m5').attr({
+				src:'../image/eee.gif',
+				width:function(w){
+					var size=(w+1);
+					return size*100;
+				},
+				height:150
+			});		
 }); // ready
-
-
-
 
 </script>
 </head>
