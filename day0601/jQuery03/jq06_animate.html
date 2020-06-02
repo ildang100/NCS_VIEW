@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** animate & fade, slide 효과  **</title>
+<script src="../jqLib/jquery-3.2.1.min.js"></script>
+<script>
+$(function(){
+	
+	//1) animate({},int)
+	// => animate({속성들}, 시간) -> 시간 1/1000초
+	// => 지정된 시간에 속성의 값을 바꿔줌.
+	// => opacity, width, height, left, top, 
+	//	  right, bottom, margin, padding
+	$('#aaa').css({
+		color:'navy',
+		width:200,
+		height:100,
+		left:10,
+		top:10,
+		backgroundColor: 'red',
+		position: 'absolute',
+		opacity: "0.2"
+	}).animate({
+		width: '-=150',
+		// width:100 => 직접 수치를 입력해도 되고,
+		// 상대적 수치 '+=300' 입력도 가능
+		height: '+=200',
+		left: '+=300',
+		top: 10,
+		opacity: '0.6'},3000); // aaa_css_animate
+		
+	// 2) 효과 메서드	
+	$('#ff').click(function() {
+		$(this).css('color','gray');
+		$('#img1').fadeToggle('slow');
+	}); // ff_click
+	
+	$('#ss').click(function() {
+		$(this).css('color','gray');
+		$('#img2').slideToggle('slow');
+		$('#img3').slideToggle('normal');
+		$('#img4').slideToggle('fast');
+	}); // ss_click
+	
+	$('#tt').click(function() {
+		$(this).css('color','gray');
+		$('#img5').toggle('slow');
+	}); // tt_click
+	
+	// ** 효과 All
+	$('button').click(function(){
+		$('#img1').fadeToggle('slow');
+		$('#img2').slideToggle('slow');
+		$('#img3').slideToggle('normal');
+		$('#img4').slideToggle('fast');
+		$('#img5').toggle('slow');
+	}); // button_click
+	
+}); // ready
+</script>
+</head>
+<body>
+<h2>** 1) Animate **</h2>
+<div id=aaa>Animate Test</div>
+
+<h2>** 2) 효과 메서드 **</h2>
+<button>효과 ALL Test</button>
+
+<h2 id=ff>** fade toggle image **</h2>
+<img src="../image/a1.png" id="img1" width="100" height="100"><br>
+
+<h2 id=ss>** slide toggle image **</h2>
+<img src="../image/a2.png" id="img2" width="100" height="100">&nbsp;
+<img src="../image/a3.png" id="img3" width="100" height="100">&nbsp;
+<img src="../image/a4.png" id="img4" width="100" height="100"><br>
+
+<h2 id=tt>** toggle image **</h2>
+<img src="../image/a5.png" id="img5" width="100" height="100"><br>
+</body>
+</html>
