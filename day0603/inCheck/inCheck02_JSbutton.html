@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Input Value 의 무결성 점검_JS, button **</title>
+<script>
+
+	function inCheck() {
+		/* if (confirm("전송 하려면  '확인', 아니면 '취소' 를 선택하세요 ~~"))
+			 // 전송 명령 -> submit 진행 명령 작성
+			 document.getElementById('myForm').submit();
+		else {
+			alert('오류수정후 전송 하세요~~ '); 	
+			return;
+		} // else  */ 
+		
+		var id=document.getElementById('id').value;
+		var password=document.getElementById('password').value;
+		var name=document.getElementById('name').value;	
+		// ID : 길이, 영문자,숫자 로만 구성
+		if (id.length<4) {
+			alert('id 는 4 글자 이상 입력하세요 ~~ ');
+			return;
+		}else if (id.replace(/[a-z.0-9]/gi,'').length > 0){
+			alert('id 는 영문자 와 숫자 로만 입력하세요 ~~ ');
+			return;
+		}
+		
+		// password : 길이(4 이상), 숫자와 특수문자는 반드시 1개 이상 포함할것
+		// => 특수문자 : HTML 특수문자 리스트표 참고 (http://kor.pe.kr/util/4/charmap2.htm)
+		var pLength=password.length ; 
+		if (password.length<4) {
+			alert('Password 는 4 글자 이상 입력하세요 ~~') ;
+			return;
+		}else if (password.replace(/[!-*]/gi,'').length >= pLength ) {
+			alert('Password는 특수문자를 반드시 1개 이상 입력하세요 ~~') ;
+			return;		
+		}else if (password.replace(/[0-9.!-*]/gi,'').length>0) {
+			alert('Password는 숫자와 특수문자 로만 입력하세요 ~~') ;
+			return;
+		} 
+		
+		// Name: 길이, 영문 또는 한글로만 입력
+		if (name.length<2) {
+			alert('Name 은 2 글자 이상 입력하세요 ~~') ;
+			return;
+		}else if (name.replace(/[a-z.가-힇]/gi,'').length>0) {
+			alert('Name 은 한글 또는 영문으로만 입력하세요 ~~') ;
+			return;
+		}
+		
+		// 모두 확인후 오류가 없으면	
+		document.getElementById('myForm').submit();	
+	} // inCheck() 
+
+</script>
+
+</head>
+<body>
+<h2>** 무결성 점검_JS, button **</h2>
+=> button type 은 submit 기능이 없으므로 
+     오류가 있을때 그냥 처리하면 되지만,
+     오류가 없을때 inCheck() function 내에서 submit 을 진행 시켜야 함
+</pre>
+<hr>
+<form action="test" method="post" id="myForm">
+<table>
+<tr><td bgcolor="skyBlue">I D</td>
+	<td><input type="text" id="id" name="id" value="banana"></td>
+</tr>
+<tr><td bgcolor="skyBlue">Password</td>
+	<td><input type="password" id="password" name="password" value="12345"></td>
+</tr>
+<tr><td bgcolor="skyBlue">Name</td>
+	<td><input type="text" id="name" name="name" value="홍길동"></td>
+</tr>
+<tr><td></td>
+	<td><input type="button" value="전송[type_button]" onclick="inCheck()">
+		<input type="reset" value="취소">	
+	</td>
+</tr>
+</table></form>
+
+
+
+</body>
+</html>
