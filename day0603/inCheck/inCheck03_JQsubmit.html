@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Input Value 의 무결성 점검_JQuery, submit **</title>
+<script src="../jqLib/jquery-3.2.1.min.js"></script>
+<script>
+//=> JQuery 방식으로 submit 버튼 활용 
+//=> submit 을 클릭하면 submit 이벤트가 발생 되고 
+//=> 이 이벤트를 이용하여 무결성 점검 가능 
+//=> 오류시에 Message 출력후, submit이 진행되지 않도록 해줘야됨.
+// 		-> 이벤트 무효화 : e.preventDefault(); 
+$(function(){
+	$('form').submit(function(e) {
+		/* if (confirm("전송 하려면  '확인', 아니면 '취소' 를 선택하세요 ~~"))
+			 return; // submit 이 진행되도록 그냥두면 됨.
+		else {
+			alert('오류 수정후 전송 하세요~~ '); 	
+			// submit 이 진행되지 않도록  현재 발생된 이벤트(submit) 를 무효화함.
+			e.preventDefault();
+			return;
+		} // else */
+		
+		// 1) Input Tag 의 value값 가져오기
+		var id = $('#id').val() ;
+		var password=$('#password').val() ;
+		var name=$('#name').val();
+		
+		// 2) 무결성 점검
+		// 2.1) null, 길이 
+		// 2.2) 값의 조건에 따른 무결성
+		// => 해결 : 정규식 과 String 의 replace 메서드 활용
+		
+		// ID : 길이, 영문자,숫자 로만 구성
+		if (id.length<4) {
+		  alert('ID 는 4 글자 이상 입력하세요 ~~') ;
+		  $('#id').focus();
+		  e.preventDefault();
+		  return;
+	 	} else if (id.replace(/[a-z.0-9]/gi,'').length>0) {
+	 		// 영문자 와 숫자 확인 정규식
+	 		alert('ID 는 영문자 와 숫자 로만 입력하세요 ~~') ;
+	 		$('#id').focus();
+	 		e.preventDefault();
+			return;
+	 	}
+		
+		// Password : 길이(4 이상), 숫자와 특수문자는 반드시 1개 이상 포함할것
+		// => 특수문자 : HTML 특수문자 리스트표 참고 (http://kor.pe.kr/util/4/charmap2.htm)
+	 	var pLength=password.length ; 
+		if (password.length<5) {
+			alert('Password 는 4 글자 이상 입력하세요 ~~') ;
+			$('#password').focus();
+			e.preventDefault();
+			return;
+		}else if (password.replace(/[!-*]/gi,'').length >= pLength ) {
+			alert('Password는 특수문자를 반드시 1개 이상 입력하세요 ~~') ;
+			$('#password').focus();
+			e.preventDefault();
+			return;		
+		}else if (password.replace(/[0-9.!-*]/gi,'').length>0) {
+			alert('Password는 숫자와 특수문자 로만 입력하세요 ~~') ;
+			$('#password').focus();
+			e.preventDefault();
+			return ;
+		}
+	 	
+		// Name: 길이, 영문 또는 한글로만 입력
+		if (name.length<2) {
+			alert('Name 은 2 글자 이상 입력하세요 ~~') ;
+			$('#name').focus();
+			e.preventDefault();
+			return;
+		}else if (name.replace(/[a-z.가-힇]/gi,'').length>0) {
+			alert('Name 은 한글 또는 영문으로만 입력하세요 ~~') ;
+			$('#name').focus();
+			e.preventDefault();
+			return;
+		}
+		
+	}); // submit
+	
+}); // ready
+
+
+
+
+
+</script>
+
+</head>
+<body>
+<h2>** 무결성 점검_JQuery, submit **</h2>
+=> submit 을 클릭하면 submit 이벤트가 발생 되고<br>
+=> 이 이벤트를 이용하여 무결성 점검 가능<br>
+<hr>
+<form action="test" method="post">
+<table>
+<tr><td bgcolor="SpringGreen">I D</td>
+	<td><input type="text" id="id" name="id" value="banana"></td>
+</tr>
+<tr><td bgcolor="SpringGreen">Password</td>
+	<td><input type="password" id="password" name="password" value="12345"></td>
+</tr>
+<tr><td bgcolor="SpringGreen">Name</td>
+	<td><input type="text" id="name" name="name" value="홍길동"></td>
+</tr>
+<tr><td></td>
+	<td><input type="submit" value="전송[submit]">
+	<!-- => onclick 시에 inCheck() 의 return 값을 전달 받음 
+			return false 이면 submit 무효화 되고, return true 이면 submit 진행 -->
+		<input type="reset" value="취소">	
+		
+		<!-- Button Test
+			Tag 내에서 button Tag 는 "type submit" 과 동일하게 작동  
+			=> return true : 404 -->
+		<button disabled="disabled">Button in Form</button>
+	</td>
+</tr>
+</table></form>
+<hr><button onclick="return inCheck()">Button_Form 외부</button><br>
+=> inCheck() 실행될뿐 submit 과는 무관
+
+</body>
+</html>
