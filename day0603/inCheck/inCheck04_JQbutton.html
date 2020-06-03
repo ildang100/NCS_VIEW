@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** 무결성 점검_JQuery,button **</title>
+<script src="../jqLib/jquery-3.2.1.min.js"></script>
+<script>
+ 
+//** JQuery,button ** 
+//=> button type 은 submit 기능이 없으므로 오류가 있을때,
+//   이벤트 무효화는 필요 없지만  ( e.preventDefault() 필요 없음 )
+//=> 성공시에 submit 을 진행  ( $('form').submit(); )  
+ 
+$(function(){
+	$('#finish').click(function(){
+		/*
+		if (confirm("전송 하려면  '확인', 아니면 '취소' 를 선택하세요 ~~")) {
+			 $('form').submit();  // submit 을 진행
+			 return; 
+		}else {
+			alert('오류 수정 후 전송 하세요~~ '); 	
+			return;
+		} // else 
+		*/
+		
+		// 1) Input Tag 의 value값 가져오기
+		var id = $('#id').val() ;
+		var password=$('#password').val() ;
+		var name=$('#name').val();
+		
+		// 2) 무결성 점검
+		// ID : 길이, 영문자,숫자 로만 구성
+		if (id.length<4) {
+		  alert('ID 는 4 글자 이상 입력하세요 ~~') ;
+		  $('#id').focus();
+		  return;
+	 	} else if (id.replace(/[a-z.0-9]/gi,'').length>0) {
+	 		// 영문자 와 숫자 확인 정규식
+	 		alert('ID 는 영문자 와 숫자 로만 입력하세요 ~~') ;
+	 		$('#id').focus();
+			return;
+	 	}
+		
+		// Password : 길이(4 이상), 숫자와 특수문자는 반드시 1개 이상 포함할것
+		// => 특수문자 : HTML 특수문자 리스트표 참고 (http://kor.pe.kr/util/4/charmap2.htm)
+	 	var pLength=password.length ; 
+		if (password.length<4) {
+			alert('Password 는 4 글자 이상 입력하세요 ~~') ;
+			$('#password').focus();
+			return;
+		}else if (password.replace(/[!-*]/gi,'').length >= pLength ) {
+			alert('Password는 특수문자를 반드시 1개 이상 입력하세요 ~~') ;
+			$('#password').focus();
+			return;		
+		}else if (password.replace(/[0-9.!-*]/gi,'').length>0) {
+			alert('Password는 숫자와 특수문자 로만 입력하세요 ~~') ;
+			$('#password').focus();
+			return ;
+		} 
+	 	
+		// Name: 길이, 영문 또는 한글로만 입력	
+		if (name.length<2) {
+			alert('Name 은 2 글자 이상 입력하세요 ~~') ;
+			$('#name').focus();
+			return;
+		}else if (name.replace(/[a-z.가-힇]/gi,'').length>0) {
+			alert('Name 은 한글 또는 영문으로만 입력하세요 ~~') ;
+			$('#name').focus();
+			return;
+		}
+		
+		// 오류가 없으면 submit 진행
+		$('form').submit();
+		
+	}); // click
+}); // ready
+</script>
+</head>
+<body>
+<pre>
+<h2>** 무결성 점검_JQuery,button **</h2>
+=> button type 은 submit 기능이 없으므로 오류가 있을때,
+      이벤트 무효화는 필요 없지만  ( e.preventDefault() 필요 없음 )
+=> 성공시에 submit 을 진행  ( $('form').submit(); )     
+</pre>
+<hr>
+<form action="test" method="post" id="myForm">
+<table>
+<tr><td bgcolor="Gold">I D</td>
+	<td><input type="text" id="id" name="id" value="banana"></td>
+</tr>
+<tr><td bgcolor="Gold">Password</td>
+	<td><input type="password" id="password" name="password" value="12345"></td>
+</tr>
+<tr><td bgcolor="Gold">Name</td>
+	<td><input type="text" id="name" name="name" value="홍길동"></td>
+</tr>
+<tr><td></td>
+	<td><input type="button" value="전송[type_button]" id="finish">
+		<input type="reset" value="취소">	
+	</td>
+</tr>
+</table></form>
+
+
+</body>
+</html>
