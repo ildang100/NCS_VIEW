@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** 무결성 점검 focusOut & submit **</title>
+<script src="../jqLib/jquery-3.2.1.min.js"></script>
+
+<script>
+
+// 1) 개별적 오류 확인을 위한 switch 변수 정의
+	var iCheck=false;
+	var pCheck=false;
+	var nCheck=false;
+
+// 2) 개별적 focusout 이벤트리스너 function 작성 : JQuery,
+// => 오류 확인
+	$(function() {
+		// 첫 화면 focus
+		$('#id').focus();
+		
+		// ID : 길이, 영문자,숫자 로만 구성
+		$('#id').focusout(function() {
+			var id = $(this).val() ;
+			if (id.length<4) {
+			  $('#iMessage').html('ID 는 4 글자 이상 입력하세요 ~~');		
+			  $(this).focus();
+			  iCheck=false;
+		 	}else if (id.replace(/[a-z.0-9]/gi,'').length>0) {
+		 		 $('#iMessage').html('ID 는 영문자 와 숫자 로만 입력하세요 ~~');
+		 		$(this).focus();
+		 		 iCheck=false;
+		 	}else {
+		 		iCheck=true;
+		 		$('#iMessage').html('');
+		 	}
+		}); // id_focusout
+		
+		// Password : 길이(4 이상), 숫자와 특수문자는 반드시 1개 이상 포함할것
+		// => 특수문자 : HTML 특수문자 리스트표 참고 (http://kor.pe.kr/util/4/charmap2.htm)
+		$('#password').focusout(function() {
+			var password=$(this).val();	
+			var pLength=password.length ; 
+			if (password.length<4) {
+				$('#pMessage').html('Password 는 4 글자 이상 입력하세요 ~~');	
+				$('#password').focus();
+				pCheck=false;
+			}else if (password.replace(/[!-*]/gi,'').length >= pLength ) {
+				$('#pMessage').html('Password는 특수문자를 반드시 1개 이상 입력하세요 ~~');	
+				$('#password').focus();
+				pCheck=false;
+			}else if (password.replace(/[0-9.!-*]/gi,'').length>0) {
+				$('#pMessage').html('Password는 숫자와 특수문자 로만 입력하세요 ~~');	
+				$('#password').focus();
+				pCheck=false;
+			}else {
+				pCheck=true;
+				$('#pMessage').html('');	
+			} 
+		}); // password
+		
+		// Name: 길이, 영문 또는 한글로만 입력
+		$('#name').focusout(function() {
+			var name=$(this).val();
+			if (name.length<2) {
+				$('#nMessage').html('Name 은 2 글자 이상 입력하세요 ~~');
+				$('#name').focus();
+				nCheck=false;
+			}else if (name.replace(/[a-z.가-힇]/gi,'').length>0) {
+				$('#nMessage').html('Name 은 한글 또는 영문으로만 입력하세요 ~~');
+				$('#name').focus();
+				nCheck=false;
+			}else {
+				nCheck=true;
+				$('#nMessage').html('');	
+			} 
+		}); // name
+		
+	}); // ready
+
+// 3) 전체적으로 입력 오류 가 없음을 확인하고 submit 여부를 판단
+	function inCheck() {
+	// if (id,password,name 오류가 없으면)
+		if (iCheck==true && pCheck==true && nCheck==true)	
+			return true;  
+		else {
+			alert('입력 오류 확인을 하지 않은 항목이 있습니다. 확인 후 전송 하세요~~ '); 	
+			return false;
+		} // else
+	} // inCheck()
+
+</script>
+
+<style>
+	span {
+		color:red; font-style:italic; font-size:x-small; 
+	}
+</style>
+</head>
+<body>
+<h3>** 무결성 점검 focusOut & submit **</h3>
+<pre>
+=> JS,JQ 혼합방식으로 submit & focusout 이벤트메서드 활용
+=> input Tag를 개별적으로 사용해야 하므로 
+	-> 개별적 오류 확인을 위한 switch 변수,
+	-> 개별적 focusout 이벤트리스너 function 작성 : JQuery,
+	-> 전체적으로 입력 오류 가 없음을 확인하고 submit 여부를 판단 : JS 의 function
+</pre>
+<hr>
+<form action="test" method="post">
+<table>
+<tr><td bgcolor="Lavender">I D</td>
+	<td><input type="text" id="id" name="id" value=""><br>
+		<span id="iMessage"></span></td>
+</tr>
+<tr><td bgcolor="Lavender">Password</td>
+	<td><input type="password" id="password" name="password" value=""><br>
+		<span id="pMessage"></span></td>
+</tr>
+<tr><td bgcolor="Lavender">Name</td>
+	<td><input type="text" id="name" name="name" value=""><br>
+		<span id="nMessage"></span></td>
+</tr>
+<tr><td></td>
+	<td><input type="submit" value="전송[submit]" onclick="return inCheck()">
+		<input type="reset" value="취소">	
+	</td>
+</tr>
+</table></form>
+
+</body>
+</html>
