@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** 윈도우 닫기 **</title>
+<script>
+	var newWin = null;
+	function load(url) {
+		newWin=open(url,"myWin","left=300,top=300,width=600,height=500");
+	}
+	function closeNewWindow() {
+		if (newWin==null || newWin.closed) return; // 윈도우가 없는 경우 그냥 리턴 
+		else newWin.close(); // 열어 놓은 윈도우 닫기
+	}
+</script>
+</head>
+<body>
+<h2>window의 close()로 윈도우 닫기</h2>
+<hr>
+<a href="javascript:load('http://www.disneyworld.com')">NewWindow Open [디즈니월드]</a><br>
+<a href="javascript:window.close()">ThisWindow Close</a><br>
+<a href="javascript:closeNewWindow()">NewWindow Close</a>
+
+</body>
+</html>
