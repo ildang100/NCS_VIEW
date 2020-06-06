@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** window.location 으로 웹 사이트 접속 **</title>
+<script src="../jqLib/jquery-3.2.1.min.js" ></script>
+<script>
+	function load() {
+		// ** select 의 value 접근 
+		// 1) index 를 이용해서 접근 할 수도 있음
+		//var s = document.getElementById('sel');
+		//window.location=s.options[s.selectedIndex].value;  
+		// 2) JS
+		//window.location=document.getElementById('sel').value;
+		// 3) JQuery
+		window.location=$('#sel').val();
+	}
+</script>
+</head>
+<body>
+<pre><h2>** window.location 으로 웹 사이트 접속 **
+
+**location 함수 (window.location...)
+=> jq02_02countDown.html 참고
+=> href='url'     : 화면전환 (히스토리에 남음 -> 이전화면 으로 이동가능)
+=> replace('url') : 화면전환 (히스토리에 남지 않음 -> 이전화면 으로 이동불가)
+=> reload() : 새로고침
+</h2></pre>
+<hr>
+* 사이트 선택 :
+<select id="sel">
+	<option value="http://www.naver.com" selected>Naver
+	<option value="http://www.disneyworld.com">Disney
+	<option value="http://www.google.com">Google
+</select>&nbsp;&nbsp;
+<button onclick="load()">연결</button>
+</body>
+</html>
