@@ -1,0 +1,32 @@
+body { background-color:yellow; }
+pre { margin-left:30px; font-size:20pt; }
+h2 { font-size:30pt; color:maroon; }
+
+/* Link button */ 
+.button {
+	width:140px;height:70px;background-color:aqua;
+	border-radius:20px; border:5px solid LightGray;
+	text-align: center;
+	}	
+.button:hover {
+	box-shadow: 5px 5px 5px #A9A9A9;
+	/* 그림자	=> box, Text 
+           => 오른쪽(h 수평거리: +우측/-좌측), 아래(v 수직거리: +아래쪽/-위쪽), 흐림도(blur), 색상 */	
+	}	
+a {color:gray; text-decoration:none;}	
+.button > a {line-height:70px;}	
+/* a Tag 에 마우스 가 닿으면 글씨는 Blue, 클릭하면 글씨 green으로  */
+.button > a:hover {color:blue;}
+.button > a:active {color:green;}
+
+/* lmenu : 펼침메뉴   */
+ul {list-style:none;}  /* 모든 ul */
+ul ul {display:none;} 
+ul li:hover ul {display:block;} 
+ul li a:hover {color:green;}
+ul a { display:block;
+	line-height:30px;
+	text-decoration:none;
+	font-size:20px; font-weight:bold; color:gray;
+	}
+/* --------------------------   */	
