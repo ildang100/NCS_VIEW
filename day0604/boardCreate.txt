@@ -1,0 +1,90 @@
+===============================================
+
+***  locking 해제
+
+=> sys접근함
+=> C:\Users\hb> sqlplus   / as sysdba  
+     또는 SQL>conn   / as sysdba
+
+=> SQL>alter user system(계정id) account unlock; 
+
+=> Lock 해제후 재연결
+	- conn system/oracle;
+
+===============================================
+
+create  table board (    
+seq number(5) primary key ,
+title varchar2(200),
+id varchar2(10),
+content varchar2(2000),
+regdate  date default sysdate,
+cnt number(5) default 0 ) ; 
+
+set linesize 200
+set pagesize 200
+
+COLUMN seq Format 99 ;
+COLUMN title Format a10 ;
+COLUMN writer Format a10 ;
+COLUMN content Format a20 ;
+COLUMN regdate Format a12 ;
+COLUMN cnt Format 99 ;
+
+select * from board ;
+
+set linesize 1200
+set pagesize 1200
+
+COLUMN id Format a10 ;
+COLUMN passward Format a10 ;
+COLUMN name Format a20 ;
+COLUMN lev Format a5 ;
+select * from board ;
+
+
+insert into board values
+(1, 'Spring 이란?','green','처음엔 복잡하고 난해하지만 친해지면 매우 편리하다',sysdate,0); 
+
+insert into board values
+(2, '의존성 주입?','green', 'dependency injection_객체간의 의존관계를 객체 자신이 아닌 외부의 조립기가  수행한다.',sysdate,0); 
+
+insert into board values
+(3, '느슨한 결합(loose coupling)', 'banana','객체는 인터페이스에 의한 의존관계만을 알고 있으며 이 의존관계는 구현 클래스에 대한 차이를 모르는채 서로 다른 구현으로 대체가 가능',sysdate,0); 
+
+insert into board values
+(4, 'Spring의 DI 지원','apple','Spring Container가 DI 조립기(Assembler)를 제공',sysdate,0); 
+
+insert into board values
+(5, 'Spring 설정파일','coffee','Spring Container가 어떻게 일할 지를 설정하는 파일',sysdate,0); 
+
+commit ;
+
+insert into board values
+((select nvl(max(seq), 0)+1 from board), 'Spring 설정파일','banana','Spring Container가 ...파일',sysdate,0); 
+
+** nvl 함수 (a,b) => a 없으면(NULL 이면) b 선택 
+
+select * from board ;
+
+----------------------------------------------------------------------------------------
+
+*** 댓글 & paging 추가 후
+
+insert into board values
+(1, 'Spring 이란?','javasam','처음엔 복잡하고 난해하지만 친해지면 매우 편리하다',sysdate,0,1,0,0); 
+
+insert into board values
+(2, '의존성 주입?','hongsam', 'dependency injection_객체간의 의존관계를 객체 자신이 아닌 외부의 조립기가  수행한다.',sysdate,0,2,0,0); 
+
+insert into board values
+(3, '느슨한 결합(loose coupling)', 'banana','객체는 인터페이스에 의한 의존관계만을 알고 있으며 이 의존관계는 구현 클래스에 대한 차이를 모르는채 서로 다른 구현으로 대체가 가능',sysdate,0,3,0,0); 
+
+insert into board values
+(4, 'Spring의 DI 지원','apple','Spring Container가 DI 조립기(Assembler)를 제공',sysdate,0,4,0,0); 
+
+insert into board values
+(5, 'Spring 설정파일','coffee','Spring Container가 어떻게 일할 지를 설정하는 파일',sysdate,0,5,0,0); 
+
+commit ;
+
