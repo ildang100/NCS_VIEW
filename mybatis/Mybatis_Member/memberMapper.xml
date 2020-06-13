@@ -18,9 +18,11 @@
 	  where rnum between #{sno} and #{eno}
   </select>				  
 
-  <!-- memberList() -->
+  <!-- memberList() 
+  	select * from member order by id -->
   <select id="selectList" resultType="vo.MemberVO">
-	select * from member order by id
+	select id,password,name, DECODE(lev,'A','관리자','B','나무','C', '잎새', '새싹') lev,
+	point,weight,birthd,rid from member order by id
   </select>
   
   <!-- memberDetail() -->
