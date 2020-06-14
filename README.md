@@ -43,3 +43,19 @@ HTML/CSS/JAVASCRIPT 학습
     * Variable 선언과 Scope
     * Selector / getElementById / quertySelectorAll
     * 이벤트 추가 / 이벤트 제거
+    * CSS 속성 다루기 / Tag 생성
+ * jQuery
+    * 라이브러리 연결
+    * animate() / setInterval() / 애니메이션 효과 만들기
+    * refresh / location / href / replace / reload / 화면 전환 / 화면 이동
+    * setTimeout() / setInterval() / clearInteaval()
+    * attr / 속성 가져오기 / 속성 지정하기
+    * css 활용
+    * hover() / click() / this
+    * Method Chaining / 메서드 체이닝
+    * 유효성 검사 / 무결성 점검
+    * 이벤트 중지 / preventDefault()
+    * 유효성 검사 후 서버로 전송시키기 submit()
+    * BOM / Browser Object Model / open / close / position / size /
+    * move / resize / scroll / 
+    
